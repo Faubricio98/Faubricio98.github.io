@@ -7,6 +7,7 @@
         <meta name="description" content="INDER - Oficios y Proyectos de la Oficina Regional de Talamanca y Valle de la Estrella" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
         
         <script src="js/scripts.js"></script>
         <script src="https://unpkg.com/promise-polyfill@7.1.0/dist/polyfill.min.js"></script>
@@ -34,26 +35,35 @@
                 <legend class="text-center">Formulario para el programa de Gestión Integral de Residuos</legend>
                 <div class="row justify-content-around">
                     <div class="col-12 col-sm-10 col-md-7 border border-secondary rounded">
-                        <!--<legend class="text-center">Objetivos del formulario</legend>-->
-                        <p class="text-justify" style="margin-top: 1em;">
-                            La siguiente guía pretende ayudar al usuario a completar el 
-                            formulario <strong> Formato para programa de Gestión Integral de 
-                            Residuos por parte de los generadores </strong> de acuerdo a la Ley 
-                            para la Gestión Integral de Residuos No. 8839.
-                        </p>
+                        <legend class="text-center">Datos del generador</legend>
 
-                        <p class="text-justify" style="margin-top: 1em;">
-                            Toda la información ingresada en esta página será guardada en un 
-                            documento en formato <strong>.pdf</strong> que se va a generar hasta
-                            que finalice la guía. Recuerde no dejar ningún espacio en blanco.
-                        </p>
+                        <label for="raz_soc">Nombre o Razón Social: </label>
+                        <input type="text" class="form-control" id="raz_soc">
 
-                        <p class="text-justify" style="margin-top: 1em;">
-                            Esto es solo una guía, todos los documentos que se generen
-                            desde esta página no tienen ninguna validez y no sustituyen
-                            ningún documento oficial.
-                        </p>
-                        <button id="btnStart" class="btn btn-primary" onclick="iniciarGuia()">Iniciar</button>
+                        <label for="ced_jud">Cédula Jurídica: (adjuntar una Personería Jurídica con no más de un mes de expedida)</label>
+                        <input type="number" class="form-control" id="ced_jud">
+
+                        <label for="dir_exa">Dirección exacta:</label>
+                        <input type="text" class="form-control" id="dir_exa">
+
+                        <label for="rep_leg">Representante legal:</label>
+                        <input type="text" class="form-control" id="rep_leg">
+
+                        <label for="cor_ele">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="cor_ele">
+
+                        <label for="dir_exa">No. Teléfono / Celular / Fax:</label>
+                        <input type="number" class="form-control" id="num_tel">
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <button id="btnBack" class="btn btn-primary" onclick="getBack('index')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <button id="btnCont" class="btn btn-primary" onclick="guardarDatosGenerador()">Guardar y continuar <i class="fi-br-angle-double-right"></i></button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

@@ -1,21 +1,32 @@
 .btn{
-    width: 50%;
-    margin-left: 25%;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+button#btnBack, #btnCont{
+    width: 100%;
+}
+
+button#btnStart{
+    width: 50%;
+    margin-left: 25%;
+}
+
+div#main-container{
+    background-color: #ffffff;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+
+label{
+    margin-top: 1em;
 }
 
 legend{
     margin-top: 1em;
     margin-bottom: 1em;
-}
-
-div#main-container{
-    background-color: #d0d4d0;
-    padding-top: 1em;
-    padding-right: 1em;
-    padding-left: 1em;
-    padding-bottom: 1em;
 }
 
 .row{
