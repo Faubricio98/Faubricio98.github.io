@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/scripts.js"></script>
-        <script src="js/cuadro1Scripts.js"></script>
+        <script src="js/cuadro3Scripts.js"></script>
         
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
@@ -24,7 +24,7 @@
                 crossorigin="anonymous">
         </script>
         <script>
-            window.localStorage.setItem('rowC1', 1);
+            window.localStorage.setItem('rowC3', 1);
         </script>
     </head>
 
@@ -41,47 +41,50 @@
                 <legend class="text-center">Formulario para el programa de Gestión Integral de Residuos</legend>
                 <div class="row justify-content-around">
                     <div class="col-11 border border-secondary rounded">
-                        <legend>Paso I: Diagnóstico</legend>
+                        <legend>Paso II: Diseño del Programa</legend>
                         <p class="text-justify" style="margin-top: 1em;">
-                            1.1 El Programa deberá contemplar un diagnóstico sobre la generación 
-                            de los residuos que se produce e identificar una serie de aspectos 
-                            de estos, tal como se plantea en el <strong>Cuadro 1</strong>.
+                            Con base en los resultados del diagnóstico se deberá elaborar un 
+                            programa que contenga una serie de acciones que involucren 
+                            necesariamente: estrategias para la prevención en la fuente, 
+                            minimización en la generación de residuos, la reutilización, 
+                            la valorización y la disposición ambientalmente segura de los 
+                            mismos. El Programa deberá contener la siguiente información:
                         </p>
-                        <legend class="text-center">Cuadro 1 - Generación de Residuos</legend>
+                        <legend class="text-center">Cuadro 3 - Programa de residuos por parte de los generadores</legend>
                         <div class="table-responsive">
                             <table id="tC1" class="table table-bordered table-striped table-dark table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Tipo de residuo <i class="fi-br-interrogation" onclick="alertTipoRes()"></i></th>
-                                        <th scope="col">Fuente de los residuos</th>
-                                        <th scope="col">Cantidad (kg - ton)</th>
-                                        <th scope="col">Condiciones almacenamiento</th>
-                                        <th scope="col">Condiciones transporte</th>
-                                        <th scope="col">Destino de los residuos <i class="fi-br-interrogation" onclick="alertDestRes()"></i></th>
-                                        <th scope="col">Tipo de registros empleados para el control del destino de los residuos</th>
+                                        <th scope="col">Desafío</th>
+                                        <th scope="col">Objetivo</th>
+                                        <th scope="col">Meta</th>
+                                        <th scope="col">Indicador de cumplimiento</th>
+                                        <th scope="col">Actividad (con sus respectivas subactividades)</th>
+                                        <th scope="col">Recursos</th>
+                                        <th scope="col">Responsable</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tablaContenido">
                                     <tr id="1">
-                                        <td><input type="text" class="form-control" id="tipo_res-1"></td>
-                                        <td><input type="text" class="form-control" id="fuen_res-1"></td>
-                                        <td><input type="number" class="form-control" id="cant_res-1"></td>
-                                        <td><input type="text" class="form-control" id="cond_alm-1"></td>
-                                        <td><input type="text" class="form-control" id="cond_tra-1"></td>
-                                        <td><input type="text" class="form-control" id="dest_res-1"></td>
-                                        <td><input type="text" class="form-control" id="regs_des-1"></td>
+                                        <td><input type="text" class="form-control" id="des-1"></td>
+                                        <td><input type="text" class="form-control" id="obj-1"></td>
+                                        <td><input type="text" class="form-control" id="met-1"></td>
+                                        <td><input type="text" class="form-control" id="ind-1"></td>
+                                        <td><input type="text" class="form-control" id="act-1"></td>
+                                        <td><input type="text" class="form-control" id="rec-1"></td>
+                                        <td><input type="text" class="form-control" id="res-1"></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <button class="btn btn-success" onclick="createNewRowC1()"> <i class="fi-br-plus"></i> </button>
-                        <button class="btn btn-danger" onclick="deleteLastRowC1()"> <i class="fi-br-cross"></i> </button>
+                        <button class="btn btn-success" onclick="createNewRowC3()"> <i class="fi-br-plus"></i> </button>
+                        <button class="btn btn-danger" onclick="deleteLastRowC3()"> <i class="fi-br-cross"></i> </button>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <button id="btnBack" class="btn btn-primary" onclick="getBack('datosGenerador')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
+                                <button id="btnBack" class="btn btn-primary" onclick="getBack('cuadro2')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
                             </div>
                             <div class="col-12 col-md-6">
-                                <button id="btnCont" class="btn btn-primary" onclick="guardarCuadro1()">Guardar y continuar <i class="fi-br-angle-double-right"></i></button>
+                                <button id="btnCont" class="btn btn-primary" onclick="guardarCuadro3()">Guardar y continuar <i class="fi-br-angle-double-right"></i></button>
                             </div>
                         </div>
 
