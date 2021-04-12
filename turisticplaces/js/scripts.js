@@ -1,18 +1,28 @@
-function secondCallMap() { 
-    
+function onLocationFound(e) {
+	var radius = e.accuracy / 2;
+	L.marker(e.latlng).addTo(mymap)
+		.bindPopup("Esta es su ubicación")//.openPopup();
+    L.circle(e.latlng, radius).addTo(mymap);
+    //mymap.setView(e.latlng, 8);
 }
 
-function callMap() { 
-    var mymap = L.map('mapid').setView([9.927596642397027, -84.09720968627332], 8);
+function onLocationError(e) {
+	//alert(e.message);
+}
+
+function callMap() {
     
-    //Watercolor
-    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	    subdomains: 'abcd',
-	    minZoom: 1,
-	    maxZoom: 16,
-	    ext: 'jpg'
-    }).addTo(mymap);
+    //MapBox
+    L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmF1MTI5OCIsImEiOiJja20yZ3d4bjQxNG05MnVyM2RnM3ljbHlyIn0.lh539RJvcX-e99_yxawaLw', {
+            maxZoom: 18,
+		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		    id: 'mapbox/satellite-streets-v11',
+		    tileSize: 512,
+		    zoomOffset: -1
+        }
+    ).addTo(mymap);
 
     var siwakabata = L.marker([9.584889653459406, -82.92993982900403]).addTo(mymap);
     siwakabata.bindPopup("<b>Finca Agroecológica Siwakabata, Limón</b>");
