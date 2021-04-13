@@ -5,7 +5,7 @@
     <meta charset='utf-8'>
     <title>Turistic Places</title>
     <meta name="description" content="Turistic Places" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -28,21 +28,31 @@
 </head>
 
 <body>
-    <header>
-        <div class="bg-dark myHeader">
-        </div>
+    <header id="myHeader" style="background-image: url('./img/tlm-casa.jpg'); background-position: center; background-size: cover;">
+        <nav id="myNavBar" class="navbar justify-content-center">
+            <ul class="navbar-nav justify-content-center" style="margin-top: 2.5em;">
+                <li class="nav-item justify-content-center">
+                    <h1 style="color: rgb(255, 255, 255);" class="text-center">Bienvenido a Turistic Places</h1>
+                </li>
+                <li class="nav-item justify-content-center">
+                    <h3 style="color: rgb(255, 255, 255);;" class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca</h3>
+                </li>
+            </ul>
+        </nav>
     </header>
-
+    
     <div id="main">
-        <div class="row justify-content-center">
-            <div class="col-11">
-                <div id="mapid"></div>
+        <div id="main-container">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <div id="mapid"></div>
+                </div>
             </div>
         </div>
     </div>
     
     <script>
-        var mymap = L.map('mapid')//.setView([9.927596642397027, -84.09720968627332], 8);
+        var mymap = L.map('mapid').setView([9.927596642397027, -84.09720968627332], 8);
         callMap();
         mymap.on('locationfound', onLocationFound);
 	    mymap.on('locationerror', onLocationError);

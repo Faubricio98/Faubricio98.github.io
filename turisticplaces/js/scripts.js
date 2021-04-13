@@ -28,7 +28,7 @@ function callMap() {
     siwakabata.bindPopup("<b>Finca Agroecológica Siwakabata, Limón</b>");
 
     var koswak = L.marker([9.514232225752258, -82.94821899958032]).addTo(mymap);
-    koswak.bindPopup("<b> <a href='https://sites.google.com/u/0/d/1MLJG0aZLBG-MCFOUmFZhUGyE8nGlI0aw/p/1nWMYqPkwZYINtuwsbj9YzByxTGKdCWO7/preview'> Koswak Úsure </a> </b>");
+    koswak.bindPopup("<b> <a href=''> Koswak Úsure </a> </b>");
     
     var shuabb = L.marker([9.537590882501654, -82.87343439441216]).addTo(mymap);
     shuabb.bindPopup("<b> Refugio Ecoturístico de Shuabb </b>");
