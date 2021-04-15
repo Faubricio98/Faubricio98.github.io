@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Gestión Integral de Residuos</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Formato para programa de Gestión Integral de Residuos por parte de los generadores - Ley No. 8839" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/cuadro4Scripts.js"></script>
+        
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
+        
+        <script src="https://unpkg.com/promise-polyfill@7.1.0/dist/polyfill.min.js"></script>
+        <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+                crossorigin="anonymous">
+        
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
+                crossorigin="anonymous">
+        </script>
+        <script>
+            window.localStorage.setItem('rowC4', 1);
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+            <!-- <nav class="navbar navbar-light" style="background-color: #3c9634;"> -->
+                <a class="navbar-brand" href="index.html">Gestión Integral de Residuos</a>
+            </nav>
+        </header>
+
+        <div id="principal">
+            <div id="main-container">
+                <legend class="text-center">Formulario para el programa de Gestión Integral de Residuos</legend>
+                <div class="row justify-content-around">
+                    <div class="col-11 border border-secondary rounded">
+                        <legend>Paso III: Seguimiento y monitoreo</legend>
+                        <p class="text-justify" style="margin-top: 1em;">
+                            El Programa deberá contar con un mecanismo de seguimiento y monitoreo 
+                            anual, por medio del cual se permita evaluar anualmente las 
+                            actividades y metas establecidas en el Programa. De esta manera se 
+                            podrán identificar los avances y logros del mismo. 
+                        </p>
+                        <legend class="text-center">Cuadro 4 - Seguimiento y monitoreo anual</legend>
+                        <div class="table-responsive">
+                            <table id="tC1" class="table table-bordered table-striped table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Actividad</th>
+                                        <th scope="col">Línea base</th>
+                                        <th scope="col">Meta</th>
+                                        <th scope="col">Indicador</th>
+                                        <th scope="col">Estado actual de la actividad</th>
+                                        <th scope="col">Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaContenido">
+                                    <tr id="1">
+                                        <td><input type="text" class="form-control" id="act-1"></td>
+                                        <td><input type="text" class="form-control" id="lib-1"></td>
+                                        <td><input type="text" class="form-control" id="met-1"></td>
+                                        <td><input type="text" class="form-control" id="ind-1"></td>
+                                        <td><input type="text" class="form-control" id="est-1"></td>
+                                        <td><input type="text" class="form-control" id="obs-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn btn-success" onclick="createNewRowC4()"> <i class="fi-br-plus"></i> </button>
+                        <button class="btn btn-danger" onclick="deleteLastRowC4()"> <i class="fi-br-cross"></i> </button>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <button id="btnBack" class="btn btn-primary" onclick="getBack('cuadro3')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <button id="btnCont" class="btn btn-primary" onclick="guardarCuadro4()">Guardar y continuar <i class="fi-br-angle-double-right"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+</html>

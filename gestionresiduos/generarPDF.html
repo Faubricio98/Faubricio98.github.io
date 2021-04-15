@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Gestión Integral de Residuos</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Formato para programa de Gestión Integral de Residuos por parte de los generadores - Ley No. 8839" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+                crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
+                crossorigin="anonymous">
+        </script>
+        <!--Bootstrap-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+        <script src="https://unpkg.com/jspdf-autotable"></script>
+        <script src="js/generarPDFScripts.js"></script>
+        <script src="js/scripts.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
+        
+        <script src="https://unpkg.com/promise-polyfill@7.1.0/dist/polyfill.min.js"></script>
+        <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+            <!-- <nav class="navbar navbar-light" style="background-color: #3c9634;"> -->
+                <a class="navbar-brand" href="index.html">Gestión Integral de Residuos</a>
+            </nav>
+        </header>
+
+        <div id="principal">
+            <div id="main-container">
+                <legend class="text-center">Formulario para el programa de Gestión Integral de Residuos</legend>
+                <div class="row justify-content-around">
+                    <div class="col-11 border border-secondary rounded">
+                        <legend>Estas son sus respuestas</legend>
+                        <p class="text-justify" style="margin-top: 1em;">
+                            A continuación encontrará las respuestas que usted ha ingresado en 
+                            esta guía. Al final encontrará un botón que al presionarlo le 
+                            generará un documento de formato <strong>.pdf</strong> donde aparecerá 
+                            toda la información que usted ha ingresado en los cuadros anteriores.
+                        </p>
+                        <hr>
+                        <!--Encabezado-->
+                        <div id="encabezado">
+                            <legend class="text-center">Anexo II</legend>
+                            <legend class="text-center">FORMATO PARA PROGRAMA DE GESTION INTEGRAL DE RESIDUOS POR PARTE DE LOS GENERADORES</legend>
+
+                            <p>
+                                Objetivos del programa:
+                            </p>
+                            <p>
+                                <ul style="list-style-type:disc">
+                                    <li> Impulsar las acciones de los sectores productivos hacia el principio de jerarquización de los residuos. </li>
+                                    <li> Promover mediante los instrumentos de gestión integral de residuos la responsabilidad compartida y la responsabilidad extendida al productor. </li>
+                                </ul>
+                            </p>
+                        </div>
+
+                        <!--Datos del generador-->
+                        <div id="datosGen">
+                            <br><p> <strong>1. Datos del generador</strong> </p>
+                            <div class="table-responsive">
+                                <table id="dataTable" class="table table-bordered table-striped table-dark table-hover">
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nombre o Razón Social: <span id="raz_soc"></span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cédula Jurídica (adjuntar una Personería Jurídica con no más de un mes de expedida): <span id="ced_jud"></span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dirección exacta: <span id="dir_exa"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Representante legal: <span id="rep_leg"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Correo Electrónico: <span id="cor_ele"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. Teléfono / Celular / Fax: <span id="num_tel"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <!--Cuadro 1-->
+                        <div id="cuadro1">
+                            <legend>Paso I: Diagnóstico</legend>
+                            <p class="text-justify" style="margin-top: 1em;">
+                                1.1 El Programa deberá contemplar un diagnóstico sobre la generación 
+                                de los residuos que se produce e identificar una serie de aspectos 
+                                de estos, tal como se plantea en el <strong>Cuadro 1</strong>.
+                            </p>
+                            <legend class="text-center">Cuadro 1 - Generación de Residuos</legend>
+                            <div class="table-responsive">
+                                <table id="cuadro1Table" class="table table-bordered table-striped table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Tipo de residuo <i class="fi-br-interrogation" onclick="alertTipoRes()"></i></th>
+                                            <th scope="col">Fuente de los residuos</th>
+                                            <th scope="col">Cantidad (kg - ton)</th>
+                                            <th scope="col">Condiciones almacenamiento</th>
+                                            <th scope="col">Condiciones transporte</th>
+                                            <th scope="col">Destino de los residuos <i class="fi-br-interrogation" onclick="alertDestRes()"></i></th>
+                                            <th scope="col">Tipo de registros empleados para el control del destino de los residuos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contentC1"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <!--cuadro 2-->
+                        <div id="cuadro2">
+                            <p class="text-justify" style="margin-top: 1em;">
+                                1.2 Con base en el diagnóstico, identificar las principales debilidades 
+                                en el manejo actual de los residuos y definir los desafíos que se 
+                                plantean para alcanzar una adecuada gestión integral de los residuos. 
+                                Para ello se deberá completar el <strong>Cuadro 2</strong>.
+                            </p>
+                            <legend class="text-center">Cuadro 2 - Identificación de debilidades y desafíos desde la jerarquización de los residuos</legend>
+                            <div class="table-responsive">
+                                <table id="cuadro2Table" class="table table-bordered table-striped table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Jerarquía de los residuos</th>
+                                            <th scope="col">Debilidades actuales</th>
+                                            <th scope="col">Desafíos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaContenido">
+                                        <tr id="1">
+                                            <td>Prevención de la fuente</td>
+                                        </tr>
+
+                                        <tr id="2">
+                                            <td>Minimización en la generación</td>
+                                        </tr>
+
+                                        <tr id="3">
+                                            <td>Reutilización de los residuos</td>
+                                        </tr>
+
+                                        <tr id="4">
+                                            <td>Tratamiento</td>
+                                        </tr>
+
+                                        <tr id="5">
+                                            <td>Disposición final</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <!--cuadro 3-->
+                        <div id="cuadro3">
+                            <legend>Paso II: Diseño del Programa</legend>
+                            <p class="text-justify" style="margin-top: 1em;">
+                                Con base en los resultados del diagnóstico se deberá elaborar un 
+                                programa que contenga una serie de acciones que involucren 
+                                necesariamente: estrategias para la prevención en la fuente, 
+                                minimización en la generación de residuos, la reutilización, 
+                                la valorización y la disposición ambientalmente segura de los 
+                                mismos. El Programa deberá contener la siguiente información:
+                            </p>
+                            <legend class="text-center">Cuadro 3 - Programa de residuos por parte de los generadores</legend>
+                            <div class="table-responsive">
+                                <table id="cuadro3Table" class="table table-bordered table-striped table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Desafío</th>
+                                            <th scope="col">Objetivo</th>
+                                            <th scope="col">Meta</th>
+                                            <th scope="col">Indicador de cumplimiento</th>
+                                            <th scope="col">Actividad (con sus respectivas subactividades)</th>
+                                            <th scope="col">Recursos</th>
+                                            <th scope="col">Responsable</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contentC3"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-8">
+                                <button id="btnCont" class="btn btn-primary" onclick="generarDocPDF()"> Generar documento <i class="fi-br-save"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+    <script>
+        cargarDatos();
+    </script>
+</html>

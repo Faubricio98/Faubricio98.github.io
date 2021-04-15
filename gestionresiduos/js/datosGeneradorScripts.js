@@ -22,7 +22,7 @@ function guardarDatosGenerador() {
         });
 
     } else {
-        var datos = [raz_soc, ced_jud, dir_exa, rep_leg, cor_ele, num_tel];
+        var datos = raz_soc +'|'+ ced_jud +'|'+ dir_exa +'|'+ rep_leg +'|'+ cor_ele +'|'+ num_tel
         window.localStorage.setItem('datos', datos);
         window.localStorage.setItem('rowC1', 1);
         window.location.href = "cuadro1.html";

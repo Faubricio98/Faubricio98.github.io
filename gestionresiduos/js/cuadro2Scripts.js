@@ -35,6 +35,7 @@ function guardarCuadro2() {
             [in9, in10]
         ];
 
+        var arrayC2 = in1 + '|' + in2 + '|' + in3 + '|' + in4 + '|' + in5 + '|' + in6 + '|' + in7 + '|' + in8 + '|' + in9 + '|' + in10;
         window.localStorage.setItem('arrayC2', arrayC2);
         window.location.href = 'cuadro3.html';
     }

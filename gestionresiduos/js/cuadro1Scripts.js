@@ -73,8 +73,8 @@ function guardarCuadro1() {
             i = window.localStorage.getItem('rowC1') + 10;
             continua = -1;
         } else {
-            var arrayC1 = [tipo_res, fuen_res, cant_res, cond_alm, cond_tra, dest_res, regs_des];
-            window.localStorage.setItem('arrayC1-'+i, arrayC1);
+            var arrayC1 = tipo_res +'|'+ fuen_res +'|'+ cant_res +'|'+ cond_alm +'|'+ cond_tra +'|'+ dest_res +'|'+ regs_des;
+            window.localStorage.setItem('arrayC1-' + i, arrayC1);
         }
     }
     if (continua == 0) {
