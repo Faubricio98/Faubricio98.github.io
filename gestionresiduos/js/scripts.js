@@ -6,6 +6,24 @@ function getBack(page) {
     window.location.href = page + ".html";
 }
 
+function alertTipoRes() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Información',
+        text: 'Por tipo de residuos se refiere a ordinarios, especiales y peligrosos.',
+        showConfirmButton: true
+    });
+}
+
+function alertDestRes() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Información',
+        text: 'Se debe adjuntar(solo en el formulario oficial) la documentación que comprueba el destino de los residuos que se detallen.',
+        showConfirmButton: true
+    });
+}
+
 function cargarDatos() {
     //datos del generador
     var dataG = window.localStorage.getItem('datos').split('|');
@@ -21,7 +39,7 @@ function cargarDatos() {
     for (var i = 1; i <= rows; i++) {
         var dataC1 = window.localStorage.getItem('arrayC1-' + i).split('|');
         var info =
-            '<tr id="' + rows + '">' +
+            '<tr>' +
             '<td>' + '<span>'+ dataC1[0] + '</span>' + '</td>' +
             '<td>' + dataC1[1] + '</td>' +
             '<td>' + dataC1[2] + '</td>' +
@@ -37,29 +55,44 @@ function cargarDatos() {
     //cuadro 2
     var dataC2 = window.localStorage.getItem('arrayC2').split('|');
     var info =
+        '<tr>' +
+        '<td>Prevención de la fuente</td>' +
         '<td>' + dataC2[0] + '</td>' +
-        '<td>' + dataC2[1] + '</td>';
-    $('#1').append(info);
+        '<td>' + dataC2[1] + '</td>' +
+        '<tr>';
+    $('#contentC2').append(info);
 
     info =
+        '<tr>' +
+        '<td>Minimización en la generación</td>' +
         '<td>' + dataC2[2] + '</td>' +
-        '<td>' + dataC2[3] + '</td>';
-    $('#2').append(info);
+        '<td>' + dataC2[3] + '</td>' +
+        '<tr>';
+    $('#contentC2').append(info);
 
     info =
+        '<tr>' +
+        '<td>Reutilización de los residuos</td>' +
         '<td>' + dataC2[4] + '</td>' +
-        '<td>' + dataC2[5] + '</td>';
-    $('#3').append(info);
+        '<td>' + dataC2[5] + '</td>' +
+        '<tr>';
+    $('#contentC2').append(info);
 
     info =
+        '<tr>' +
+        '<td>Tratamiento</td>' +
         '<td>' + dataC2[6] + '</td>' +
-        '<td>' + dataC2[7] + '</td>';
-    $('#4').append(info);
+        '<td>' + dataC2[7] + '</td>' +
+        '<tr>';
+    $('#contentC2').append(info);
 
     info =
+        '<tr>' +
+        '<td>Disposición final</td>' +
         '<td>' + dataC2[8] + '</td>' +
-        '<td>' + dataC2[9] + '</td>';
-    $('#5').append(info);
+        '<td>' + dataC2[9] + '</td>' +
+        '<tr>';
+    $('#contentC2').append(info);
 
     //cuadro 3
     rows = window.localStorage.getItem('rowC3');
@@ -77,5 +110,22 @@ function cargarDatos() {
             '</tr>';
         
         $('#contentC3').append(info);
+    }
+
+    //cuadro 4
+    rows = window.localStorage.getItem('rowC4');
+    for (var i = 1; i <= rows; i++) {
+        var dataC4 = window.localStorage.getItem('arrayC4-' + i).split('|');
+        var info =
+            '<tr>' +
+            '<td>' + dataC4[0] + '</td>' +
+            '<td>' + dataC4[1] + '</td>' +
+            '<td>' + dataC4[2] + '</td>' +
+            '<td>' + dataC4[3] + '</td>' +
+            '<td>' + dataC4[4] + '</td>' +
+            '<td>' + dataC4[5] + '</td>' +
+            '</tr>';
+        
+        $('#contentC4').append(info);
     }
 }

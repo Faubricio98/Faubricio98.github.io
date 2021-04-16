@@ -22,10 +22,19 @@ function guardarDatosGenerador() {
         });
 
     } else {
-        var datos = raz_soc +'|'+ ced_jud +'|'+ dir_exa +'|'+ rep_leg +'|'+ cor_ele +'|'+ num_tel
+        var datos = raz_soc + '|' + ced_jud + '|' + dir_exa + '|' + rep_leg + '|' + cor_ele + '|' + num_tel;
         window.localStorage.setItem('datos', datos);
-        window.localStorage.setItem('rowC1', 1);
         window.location.href = "cuadro1.html";
     }
 
+}
+
+function cargarDatosGenerador() {
+    var datos = window.localStorage.getItem('datos').split('|');
+    document.getElementById('raz_soc').value = datos[0];
+    document.getElementById('ced_jud').value = datos[1];
+    document.getElementById('dir_exa').value = datos[2];
+    document.getElementById('rep_leg').value = datos[3];
+    document.getElementById('cor_ele').value = datos[4];
+    document.getElementById('num_tel').value = datos[5];
 }

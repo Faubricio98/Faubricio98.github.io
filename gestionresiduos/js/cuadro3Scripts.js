@@ -22,9 +22,14 @@ function createNewRowC3() {
 }
 
 function deleteLastRowC3() {
-    $('#' + window.localStorage.getItem('rowC3')).remove();
-    var rows = parseInt(window.localStorage.getItem('rowC3')) - 1;
-    window.localStorage.setItem('rowC3', rows);
+    if (window.localStorage.getItem('rowC3') > 1) {
+        $('#' + window.localStorage.getItem('rowC3')).remove();
+        var rows = parseInt(window.localStorage.getItem('rowC3'));
+        window.localStorage.setItem('rowC3', rows - 1);
+        if (window.localStorage.getItem('arrayC3-' + rows)) {
+            window.localStorage.removeItem('arrayC3-' + rows);
+        }
+    }
 }
 
 function guardarCuadro3() {
@@ -61,5 +66,36 @@ function guardarCuadro3() {
     }
     if (continua == 0) {
         window.location.href = "cuadro4.html";
+    }
+}
+
+function cargarDatosC3() {
+    $('#tablaContenido tr').remove(); // Eliminar contenido de la tabla
+    var rows = parseInt(window.localStorage.getItem('rowC3'));
+    if (rows == 1 && !window.localStorage.getItem('arrayC3-1')) {
+        window.localStorage.setItem('rowC3', 0);
+        createNewRowC3();
+    } else {
+        var real = rows;
+        for (var i = 1; i <= rows; i++) {
+            if (!window.localStorage.getItem('arrayC3-' + i)) {
+                real--;
+            } else {
+                var datos = window.localStorage.getItem('arrayC3-' + i).split('|');
+                var info =
+                    '<tr id="' + i + '">' +
+                    '<th>' + '<input type="text" class="form-control" id="des-' + i + '" value="' + datos[0] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="obj-' + i + '" value="' + datos[1] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="met-' + i + '" value="' + datos[2] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="ind-' + i + '" value="' + datos[3] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="act-' + i + '" value="' + datos[4] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="rec-' + i + '" value="' + datos[5] + '">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="res-' + i + '" value="' + datos[6] + '">' + '</th>' +
+                    '</tr>';
+
+                $('#tablaContenido').append(info);
+            }
+        }
+        window.localStorage.setItem('rowC3', real);
     }
 }

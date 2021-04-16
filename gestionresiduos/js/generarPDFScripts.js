@@ -127,5 +127,37 @@ function generarDocPDF() {
             },
         }
     );
-    doc.save("a4.pdf");
+
+    //cuadro 4
+    doc.addPage();
+    var finalY = 10;
+    doc.setFont("times", "bold", "bold");
+    doc.text('PASO III: Seguimiento y monitoreo', 14, finalY + 10);
+    doc.setFont("times", "normal", "normal");
+    doc.text('El Programa deberá contar con un mecanismo de seguimiento y monitoreo anual, por medio del cual se \npermita evaluar anualmente las actividades y metas establecidas en el Programa. De esta manera se podrán \nidentificar los avances y logros del mismo.', 14, finalY + 20);
+    doc.setFont("times", "bold", "bold");
+    doc.text('CUADRO 4', width / 2, finalY + 39, { align: 'center' });
+    doc.text('SEGUIMIENTO Y MONITOREO ANUAL', width / 2, finalY + 45, { align: 'center' });
+    doc.autoTable(
+        {
+            startY: finalY + 54,
+            html: '#cuadro4Table',
+            theme: 'grid',
+            styles: {
+                lineColor: [0, 0, 0],
+                lineWidth: 0.1,
+            },
+            headStyles: {
+                fillColor: [223, 220, 219],
+                textColor: 0,
+                fontSize: 12,
+            },
+            bodyStyles: {
+                fillColor: [255, 255, 255],
+                textColor: 0,
+            },
+        }
+    );
+
+    doc.save("Anexo II - Formato para Programa de Gestion Integral de Residuos por parte de los generadores.pdf");
 }

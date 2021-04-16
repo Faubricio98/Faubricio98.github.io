@@ -1,21 +1,3 @@
-function alertTipoRes() {
-    Swal.fire({
-        icon: 'info',
-        title: 'Información',
-        text: 'Por tipo de residuos se refiere a ordinarios, especiales y peligrosos.',
-        showConfirmButton: true
-    });
-}
-
-function alertDestRes() {
-    Swal.fire({
-        icon: 'info',
-        title: 'Información',
-        text: 'Se debe adjuntar(solo en el formulario oficial) la documentación que comprueba el destino de los residuos que se detallen.',
-        showConfirmButton: true
-    });
-}
-
 function createNewRowC1() {
     var rows = 1;
     if (parseInt(window.localStorage.getItem('rowC1')) <= 0) {
@@ -40,9 +22,45 @@ function createNewRowC1() {
 }
 
 function deleteLastRowC1() {
-    $('#' + window.localStorage.getItem('rowC1')).remove();
-    var rows = parseInt(window.localStorage.getItem('rowC1')) - 1;
-    window.localStorage.setItem('rowC1', rows);
+    if (window.localStorage.getItem('rowC1') > 1) {
+        $('#' + window.localStorage.getItem('rowC1')).remove();
+        var rows = parseInt(window.localStorage.getItem('rowC1'));
+        window.localStorage.setItem('rowC1', rows - 1);
+        if (window.localStorage.getItem('arrayC1-' + rows)) {
+            window.localStorage.removeItem('arrayC1-' + rows);
+        }
+    }
+}
+
+function cargarDatosC1() {
+    $('#tablaContenido tr').remove(); // Eliminar contenido de la tabla
+    var rows = parseInt(window.localStorage.getItem('rowC1'));
+    if (rows == 1 && !window.localStorage.getItem('arrayC1-1')) {
+        window.localStorage.setItem('rowC1', 0);
+        createNewRowC1();
+    } else {
+        var real = rows;
+        for (var i = 1; i <= rows; i++) {
+            if (!window.localStorage.getItem('arrayC1-' + i)) {
+                real--;
+            } else {
+                var datos = window.localStorage.getItem('arrayC1-' + i).split('|');
+                var info =
+                    '<tr id="' + i + '">' +
+                    '<td>' + '<input type="text" class="form-control" id="tipo_res-' + i + '" value="' + datos[0] + '">' + '</td>' +
+                    '<td>' + '<input type="text" class="form-control" id="fuen_res-' + i + '" value="' + datos[1] + '">' + '</td>' +
+                    '<td>' + '<input type="number" class="form-control" id="cant_res-' + i + '" value="' + datos[2] + '">' + '</td>' +
+                    '<td>' + '<input type="text" class="form-control" id="cond_alm-' + i + '" value="' + datos[3] + '">' + '</td>' +
+                    '<td>' + '<input type="text" class="form-control" id="cond_tra-' + i + '" value="' + datos[4] + '">' + '</td>' +
+                    '<td>' + '<input type="text" class="form-control" id="dest_res-' + i + '" value="' + datos[5] + '">' + '</td>' +
+                    '<td>' + '<input type="text" class="form-control" id="regs_des-' + i + '" value="' + datos[6] + '">' + '</td>' +
+                    '</tr>';
+
+                $('#tablaContenido').append(info);
+            }
+        }
+        window.localStorage.setItem('rowC1', real);
+    }
 }
 
 function guardarCuadro1() {

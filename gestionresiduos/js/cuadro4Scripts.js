@@ -21,9 +21,44 @@ function createNewRowC4() {
 }
 
 function deleteLastRowC4() {
-    $('#' + window.localStorage.getItem('rowC4')).remove();
-    var rows = parseInt(window.localStorage.getItem('rowC4')) - 1;
-    window.localStorage.setItem('rowC4', rows);
+    if (window.localStorage.getItem('rowC4') > 1) {
+        $('#' + window.localStorage.getItem('rowC4')).remove();
+        var rows = parseInt(window.localStorage.getItem('rowC4'));
+        window.localStorage.setItem('rowC4', rows - 1);
+        if (window.localStorage.getItem('arrayC4-' + rows)) {
+            window.localStorage.removeItem('arrayC4-' + rows);
+        }
+    }
+}
+
+function cargarDatosC4() {
+    $('#tablaContenido tr').remove(); // Eliminar contenido de la tabla
+    var rows = parseInt(window.localStorage.getItem('rowC4'));
+    if (rows == 1 && !window.localStorage.getItem('arrayC4-1')) {
+        window.localStorage.setItem('rowC4', 0);
+        createNewRowC4();
+    } else {
+        var real = rows;
+        for (var i = 1; i <= rows; i++) {
+            if (!window.localStorage.getItem('arrayC4-' + i)) {
+                real--;
+            } else {
+                var datos = window.localStorage.getItem('arrayC4-' + i).split('|');
+                var info =
+                    '<tr id="' + i + '">' +
+                    '<th>' + '<input type="text" class="form-control" id="act-' + rows + '" value="'+datos[0]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="lib-' + rows + '" value="'+datos[1]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="met-' + rows + '" value="'+datos[2]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="ind-' + rows + '" value="'+datos[3]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="est-' + rows + '" value="'+datos[4]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="obs-' + rows + '" value="'+datos[5]+'">' + '</th>' +
+                    '</tr>';
+
+                $('#tablaContenido').append(info);
+            }
+        }
+        window.localStorage.setItem('rowC4', real);
+    }
 }
 
 function guardarCuadro4() {
@@ -55,7 +90,7 @@ function guardarCuadro4() {
             i = window.localStorage.getItem('rowC4') + 10;
             continua = -1;
         } else {
-            var arrayC4 = [act, lib, met, ind, est, obs];
+            var arrayC4 = act + '|' + lib + '|' + met + '|' + ind + '|' + est + '|' + obs;
             window.localStorage.setItem('arrayC4-'+i, arrayC4);
         }
     }

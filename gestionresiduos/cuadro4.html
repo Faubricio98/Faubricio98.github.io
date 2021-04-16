@@ -23,9 +23,6 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
                 crossorigin="anonymous">
         </script>
-        <script>
-            window.localStorage.setItem('rowC4', 1);
-        </script>
     </head>
 
     <body>
@@ -90,5 +87,14 @@
             </div>
         </div>
     </body>
+    <footer>
+        <script>
+            if(!window.localStorage.getItem('rowC4')){
+                window.localStorage.setItem('rowC4', 1);
+            }else{
+                cargarDatosC4();
+            }
+        </script>
+    </footer>
 
 </html>
