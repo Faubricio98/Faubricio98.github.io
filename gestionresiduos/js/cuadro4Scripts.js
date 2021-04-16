@@ -46,12 +46,12 @@ function cargarDatosC4() {
                 var datos = window.localStorage.getItem('arrayC4-' + i).split('|');
                 var info =
                     '<tr id="' + i + '">' +
-                    '<th>' + '<input type="text" class="form-control" id="act-' + rows + '" value="'+datos[0]+'">' + '</th>' +
-                    '<th>' + '<input type="text" class="form-control" id="lib-' + rows + '" value="'+datos[1]+'">' + '</th>' +
-                    '<th>' + '<input type="text" class="form-control" id="met-' + rows + '" value="'+datos[2]+'">' + '</th>' +
-                    '<th>' + '<input type="text" class="form-control" id="ind-' + rows + '" value="'+datos[3]+'">' + '</th>' +
-                    '<th>' + '<input type="text" class="form-control" id="est-' + rows + '" value="'+datos[4]+'">' + '</th>' +
-                    '<th>' + '<input type="text" class="form-control" id="obs-' + rows + '" value="'+datos[5]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="act-' + i + '" value="'+datos[0]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="lib-' + i + '" value="'+datos[1]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="met-' + i + '" value="'+datos[2]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="ind-' + i + '" value="'+datos[3]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="est-' + i + '" value="'+datos[4]+'">' + '</th>' +
+                    '<th>' + '<input type="text" class="form-control" id="obs-' + i + '" value="'+datos[5]+'">' + '</th>' +
                     '</tr>';
 
                 $('#tablaContenido').append(info);
