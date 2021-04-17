@@ -23,14 +23,19 @@ function guardarDatosGenerador() {
 
     } else {
         var datos = raz_soc + '|' + ced_jud + '|' + dir_exa + '|' + rep_leg + '|' + cor_ele + '|' + num_tel;
-        window.localStorage.setItem('datos', datos);
-        window.location.href = "cuadro1.html";
+        window.sessionStorage.setItem('datos', datos);
+        if (window.sessionStorage.getItem('editPage') == 0) {
+            window.sessionStorage.setItem('editPage', -1);
+            window.location.href = "generarPDF.html#datos-generador";
+        } else {
+            window.location.href = "cuadro1.html";
+        }
     }
 
 }
 
 function cargarDatosGenerador() {
-    var datos = window.localStorage.getItem('datos').split('|');
+    var datos = window.sessionStorage.getItem('datos').split('|');
     document.getElementById('raz_soc').value = datos[0];
     document.getElementById('ced_jud').value = datos[1];
     document.getElementById('dir_exa').value = datos[2];

@@ -158,6 +158,6 @@ function generarDocPDF() {
             },
         }
     );
-
+    
     doc.save("Anexo II - Formato para Programa de Gestion Integral de Residuos por parte de los generadores.pdf");
 }

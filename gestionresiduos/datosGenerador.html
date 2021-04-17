@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
         
+        <script src="js/jquery-3.2.1.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/datosGeneradorScripts.js"></script>
         <script src="https://unpkg.com/promise-polyfill@7.1.0/dist/polyfill.min.js"></script>
@@ -56,7 +57,7 @@
                         <label for="dir_exa">No. Teléfono / Celular / Fax:</label>
                         <input type="number" class="form-control" id="num_tel">
 
-                        <div class="row">
+                        <div class="row justify-content-center" id="btnGroup">
                             <div class="col-12 col-md-6">
                                 <button id="btnBack" class="btn btn-primary" onclick="getBack('index')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
                             </div>
@@ -67,15 +68,17 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
     </body>
 
     <footer>
         <script>
-            if(window.localStorage.getItem('datos')){
+            if(window.sessionStorage.getItem('datos')){
                 cargarDatosGenerador();
+            }
+            if(window.sessionStorage.getItem('editPage') == 0){
+                cargarBotonFlotante();
             }
         </script>
     </footer>

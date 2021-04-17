@@ -1,9 +1,9 @@
 function createNewRowC1() {
     var rows = 1;
-    if (parseInt(window.localStorage.getItem('rowC1')) <= 0) {
-        window.localStorage.setItem('rowC1', 1);
+    if (parseInt(window.sessionStorage.getItem('rowC1')) <= 0) {
+        window.sessionStorage.setItem('rowC1', 1);
     } else {
-        rows = parseInt(window.localStorage.getItem('rowC1')) + 1;
+        rows = parseInt(window.sessionStorage.getItem('rowC1')) + 1;
     }
     //$('#tablaContenido tr').remove(); // Eliminar contenido de la tabla
     var info =
@@ -18,33 +18,33 @@ function createNewRowC1() {
         '</tr>';
     
     $('#tablaContenido').append(info);
-    window.localStorage.setItem('rowC1', rows);
+    window.sessionStorage.setItem('rowC1', rows);
 }
 
 function deleteLastRowC1() {
-    if (window.localStorage.getItem('rowC1') > 1) {
-        $('#' + window.localStorage.getItem('rowC1')).remove();
-        var rows = parseInt(window.localStorage.getItem('rowC1'));
-        window.localStorage.setItem('rowC1', rows - 1);
-        if (window.localStorage.getItem('arrayC1-' + rows)) {
-            window.localStorage.removeItem('arrayC1-' + rows);
+    if (window.sessionStorage.getItem('rowC1') > 1) {
+        $('#' + window.sessionStorage.getItem('rowC1')).remove();
+        var rows = parseInt(window.sessionStorage.getItem('rowC1'));
+        window.sessionStorage.setItem('rowC1', rows - 1);
+        if (window.sessionStorage.getItem('arrayC1-' + rows)) {
+            window.sessionStorage.removeItem('arrayC1-' + rows);
         }
     }
 }
 
 function cargarDatosC1() {
     $('#tablaContenido tr').remove(); // Eliminar contenido de la tabla
-    var rows = parseInt(window.localStorage.getItem('rowC1'));
-    if (rows == 1 && !window.localStorage.getItem('arrayC1-1')) {
-        window.localStorage.setItem('rowC1', 0);
+    var rows = parseInt(window.sessionStorage.getItem('rowC1'));
+    if (rows == 1 && !window.sessionStorage.getItem('arrayC1-1')) {
+        window.sessionStorage.setItem('rowC1', 0);
         createNewRowC1();
     } else {
         var real = rows;
         for (var i = 1; i <= rows; i++) {
-            if (!window.localStorage.getItem('arrayC1-' + i)) {
+            if (!window.sessionStorage.getItem('arrayC1-' + i)) {
                 real--;
             } else {
-                var datos = window.localStorage.getItem('arrayC1-' + i).split('|');
+                var datos = window.sessionStorage.getItem('arrayC1-' + i).split('|');
                 var info =
                     '<tr id="' + i + '">' +
                     '<td>' + '<input type="text" class="form-control" id="tipo_res-' + i + '" value="' + datos[0] + '">' + '</td>' +
@@ -59,14 +59,14 @@ function cargarDatosC1() {
                 $('#tablaContenido').append(info);
             }
         }
-        window.localStorage.setItem('rowC1', real);
+        window.sessionStorage.setItem('rowC1', real);
     }
 }
 
 function guardarCuadro1() {
     var espacio_blanco = /[a-z]/i;  //Expresión regular
     var continua = 0;
-    for (var i = 1; i <= window.localStorage.getItem('rowC1'); i++) {
+    for (var i = 1; i <= window.sessionStorage.getItem('rowC1'); i++) {
         var tipo_res = document.getElementById('tipo_res-' + i).value;
         var fuen_res = document.getElementById('fuen_res-' + i).value;
         var cant_res = document.getElementById('cant_res-' + i).value;
@@ -88,14 +88,19 @@ function guardarCuadro1() {
             });
 
             //si hay algo mal, el ciclo se cierra y no continua más
-            i = window.localStorage.getItem('rowC1') + 10;
+            i = window.sessionStorage.getItem('rowC1') + 10;
             continua = -1;
         } else {
             var arrayC1 = tipo_res +'|'+ fuen_res +'|'+ cant_res +'|'+ cond_alm +'|'+ cond_tra +'|'+ dest_res +'|'+ regs_des;
-            window.localStorage.setItem('arrayC1-' + i, arrayC1);
+            window.sessionStorage.setItem('arrayC1-' + i, arrayC1);
         }
     }
     if (continua == 0) {
-        window.location.href = "cuadro2.html";
+        if (window.sessionStorage.getItem('editPage') == 1) {
+            window.sessionStorage.setItem('editPage', -1);
+            window.location.href = "generarPDF.html#cuadro-1";
+        } else {
+            window.location.href = "cuadro2.html";
+        }
     }
 }

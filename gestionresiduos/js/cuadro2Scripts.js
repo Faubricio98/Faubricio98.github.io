@@ -28,13 +28,18 @@ function guardarCuadro2() {
         var in10 = document.getElementById('input10').value;
 
         var arrayC2 = in1 + '|' + in2 + '|' + in3 + '|' + in4 + '|' + in5 + '|' + in6 + '|' + in7 + '|' + in8 + '|' + in9 + '|' + in10;
-        window.localStorage.setItem('arrayC2', arrayC2);
-        window.location.href = 'cuadro3.html';
+        window.sessionStorage.setItem('arrayC2', arrayC2);
+        if (window.sessionStorage.getItem('editPage') == 2) {
+            window.sessionStorage.setItem('editPage', -1);
+            window.location.href = "generarPDF.html#cuadro-2";
+        } else {
+            window.location.href = 'cuadro3.html';
+        }
     }
 }
 
 function cargarDatosC2() {
-    var datos = window.localStorage.getItem('arrayC2').split('|');
+    var datos = window.sessionStorage.getItem('arrayC2').split('|');
     for (var i = 1; i <= 10; i++) {
         var dato = document.getElementById('input' + i).value = datos[i-1];
     }

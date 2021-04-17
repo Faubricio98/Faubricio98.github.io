@@ -89,7 +89,7 @@
                             </table>
                         </div>
 
-                        <div class="row">
+                        <div class="row justify-content-center" id="btnGroup">
                             <div class="col-12 col-md-6">
                                 <button id="btnBack" class="btn btn-primary" onclick="getBack('cuadro1')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
                             </div>
@@ -107,8 +107,17 @@
 
     <footer>
         <script>
-            if(window.localStorage.getItem('arrayC2')){
-                cargarDatosC2();
+            if (!window.sessionStorage.getItem('datos')) {
+                window.location.href = 'datosGenerador.html';
+            } else if (!window.sessionStorage.getItem('arrayC1-1')) {
+                window.location.href = 'cuadro1.html';
+            }else{
+                if(window.sessionStorage.getItem('arrayC2')){
+                    cargarDatosC2();
+                }
+                if(window.sessionStorage.getItem('editPage') == 2){
+                    cargarBotonFlotante();
+                }
             }
         </script>
     </footer>

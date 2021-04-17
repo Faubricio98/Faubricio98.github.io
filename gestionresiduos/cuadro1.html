@@ -73,7 +73,7 @@
                         </div>
                         <button class="btn btn-success" onclick="createNewRowC1()"> <i class="fi-br-plus"></i> </button>
                         <button class="btn btn-danger" onclick="deleteLastRowC1()"> <i class="fi-br-cross"></i> </button>
-                        <div class="row">
+                        <div class="row justify-content-center" id="btnGroup">
                             <div class="col-12 col-md-6">
                                 <button id="btnBack" class="btn btn-primary" onclick="getBack('datosGenerador')"> <i class="fi-br-angle-double-left"></i> Regresar</button>
                             </div>
@@ -91,10 +91,17 @@
 
     <footer>
         <script>
-            if(!window.localStorage.getItem('rowC1')){
-                window.localStorage.setItem('rowC1', 1);
+            if (!window.sessionStorage.getItem('datos')) {
+                window.location.href = 'datosGenerador.html';
             }else{
-                cargarDatosC1();
+                if(!window.sessionStorage.getItem('rowC1')){
+                    window.sessionStorage.setItem('rowC1', 1);
+                }else{
+                    cargarDatosC1();
+                }
+                if(window.sessionStorage.getItem('editPage') == 1){
+                    cargarBotonFlotante();
+                }
             }
         </script>
     </footer>

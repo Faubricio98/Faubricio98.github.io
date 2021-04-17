@@ -22,11 +22,10 @@
         <script src="https://unpkg.com/jspdf-autotable"></script>
         <script src="js/generarPDFScripts.js"></script>
         <script src="js/scripts.js"></script>
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
-        
         <script src="https://unpkg.com/promise-polyfill@7.1.0/dist/polyfill.min.js"></script>
         <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -68,7 +67,7 @@
 
                         <!--Datos del generador-->
                         <div id="datosGen">
-                            <br><p> <strong>1. Datos del generador</strong> </p>
+                            <br><p id="datos-generador"> <strong> 1. Datos del generador </strong> <i class="fi-br-edit" onclick="getBacktoEdit(0)"></i> </p>
                             <div class="table-responsive">
                                 <table id="dataTable" class="table table-bordered table-striped table-dark table-hover">
                                     <thead></thead>
@@ -104,8 +103,8 @@
                                 de los residuos que se produce e identificar una serie de aspectos 
                                 de estos, tal como se plantea en el <strong>Cuadro 1</strong>.
                             </p>
-                            <legend class="text-center">Cuadro 1 - Generación de Residuos</legend>
-                            <div class="table-responsive">
+                            <legend class="text-center" id="cuadro-1"> Cuadro 1 - Generación de Residuos <i class="fi-br-edit" onclick="getBacktoEdit(1)"></i></legend>
+                            <div class="table-responsive"> 
                                 <table id="cuadro1Table" class="table table-bordered table-striped table-dark table-hover">
                                     <thead>
                                         <tr>
@@ -132,7 +131,7 @@
                                 plantean para alcanzar una adecuada gestión integral de los residuos. 
                                 Para ello se deberá completar el <strong>Cuadro 2</strong>.
                             </p>
-                            <legend class="text-center">Cuadro 2 - Identificación de debilidades y desafíos desde la jerarquización de los residuos</legend>
+                            <legend class="text-center" id="cuadro-2"> Cuadro 2 - Identificación de debilidades y desafíos desde la jerarquización de los residuos <i class="fi-br-edit" onclick="getBacktoEdit(2)"></i></legend>
                             <div class="table-responsive">
                                 <table id="cuadro2Table" class="table table-bordered table-striped table-dark table-hover">
                                     <thead>
@@ -159,7 +158,7 @@
                                 la valorización y la disposición ambientalmente segura de los 
                                 mismos. El Programa deberá contener la siguiente información:
                             </p>
-                            <legend class="text-center">Cuadro 3 - Programa de residuos por parte de los generadores</legend>
+                            <legend class="text-center" id="cuadro-3"> Cuadro 3 - Programa de residuos por parte de los generadores <i class="fi-br-edit" onclick="getBacktoEdit(3)"></i></legend>
                             <div class="table-responsive">
                                 <table id="cuadro3Table" class="table table-bordered table-striped table-dark table-hover">
                                     <thead>
@@ -188,7 +187,7 @@
                                 actividades y metas establecidas en el Programa. De esta manera se 
                                 podrán identificar los avances y logros del mismo. 
                             </p>
-                            <legend class="text-center">Cuadro 4 - Seguimiento y monitoreo anual</legend>
+                            <legend class="text-center" id="cuadro-4"> Cuadro 4 - Seguimiento y monitoreo anual <i class="fi-br-edit" onclick="getBacktoEdit(4)"></i></legend>
                             <div class="table-responsive">
                                 <table id="cuadro4Table" class="table table-bordered table-striped table-dark table-hover">
                                     <thead>

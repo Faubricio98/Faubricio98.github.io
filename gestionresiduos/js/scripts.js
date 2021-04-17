@@ -1,9 +1,25 @@
 function iniciarGuia() {
+    window.sessionStorage.setItem('editPage', -1);
     window.location.href = "datosGenerador.html";
 }
 
 function getBack(page) {
     window.location.href = page + ".html";
+}
+
+function getBacktoEdit(num) {
+    window.sessionStorage.setItem('editPage', num);
+    if (num == 0) {
+        window.location.href = "datosGenerador.html";
+    } else if (num == 1) {
+        window.location.href = "cuadro1.html";
+    } else if (num == 2) {
+        window.location.href = "cuadro2.html";
+    } else if (num == 3) {
+        window.location.href = "cuadro3.html";
+    } else if (num == 4) {
+        window.location.href = "cuadro4.html";
+    }
 }
 
 function alertTipoRes() {
@@ -24,9 +40,32 @@ function alertDestRes() {
     });
 }
 
+function cargarBotonFlotante() {
+    document.getElementById('btnGroup').innerHTML = '';
+    var info = '';
+    var num = window.sessionStorage.getItem('editPage');
+    if (window.sessionStorage.getItem('editPage') == 0) {
+        info =
+            '<div class="col-12 col-md-9">' +
+            '<button id="btnBack" class="btn btn-primary" onclick="guardarDatosGenerador()">' +
+            '<i class="fi-br-disk"></i> Guardar y volver a respuestas finales </button>' +
+            '</div>';
+    } else {
+        info =
+            '<div class="col-12 col-md-9">' +
+            '<button id="btnBack" class="btn btn-primary" onclick="guardarCuadro' + num + '()">' +
+            '<i class="fi-br-disk"></i> Guardar y volver a respuestas finales </button>' +
+            '</div>';
+    }
+    $('#btnGroup').append(info);
+}
+
 function cargarDatos() {
+    if (!window.sessionStorage.getItem('datos')) {
+        window.location.href = 'index.html';
+    }
     //datos del generador
-    var dataG = window.localStorage.getItem('datos').split('|');
+    var dataG = window.sessionStorage.getItem('datos').split('|');
     document.getElementById('raz_soc').innerText = dataG[0];
     document.getElementById('ced_jud').innerText = dataG[1];
     document.getElementById('dir_exa').innerText = dataG[2];
@@ -35,9 +74,12 @@ function cargarDatos() {
     document.getElementById('num_tel').innerText = dataG[5];
 
     //cuadro 1
-    var rows = window.localStorage.getItem('rowC1');
+    if (!window.sessionStorage.getItem('arrayC1-1')) {
+        window.location.href = 'cuadro1.html';
+    }
+    var rows = window.sessionStorage.getItem('rowC1');
     for (var i = 1; i <= rows; i++) {
-        var dataC1 = window.localStorage.getItem('arrayC1-' + i).split('|');
+        var dataC1 = window.sessionStorage.getItem('arrayC1-' + i).split('|');
         var info =
             '<tr>' +
             '<td>' + '<span>'+ dataC1[0] + '</span>' + '</td>' +
@@ -53,7 +95,10 @@ function cargarDatos() {
     }
 
     //cuadro 2
-    var dataC2 = window.localStorage.getItem('arrayC2').split('|');
+    if (!window.sessionStorage.getItem('arrayC2')) {
+        window.location.href = 'cuadro2.html';
+    }
+    var dataC2 = window.sessionStorage.getItem('arrayC2').split('|');
     var info =
         '<tr>' +
         '<td>Prevención de la fuente</td>' +
@@ -95,9 +140,12 @@ function cargarDatos() {
     $('#contentC2').append(info);
 
     //cuadro 3
-    rows = window.localStorage.getItem('rowC3');
+    if (!window.sessionStorage.getItem('arrayC3-1')) {
+        window.location.href = 'cuadro3.html';
+    }
+    rows = window.sessionStorage.getItem('rowC3');
     for (var i = 1; i <= rows; i++) {
-        var dataC3 = window.localStorage.getItem('arrayC3-' + i).split('|');
+        var dataC3 = window.sessionStorage.getItem('arrayC3-' + i).split('|');
         var info =
             '<tr>' +
             '<td>' + dataC3[0] + '</td>' +
@@ -113,9 +161,12 @@ function cargarDatos() {
     }
 
     //cuadro 4
-    rows = window.localStorage.getItem('rowC4');
+    if (!window.sessionStorage.getItem('arrayC4-1')) {
+        window.location.href = 'cuadro4.html';
+    }
+    rows = window.sessionStorage.getItem('rowC4');
     for (var i = 1; i <= rows; i++) {
-        var dataC4 = window.localStorage.getItem('arrayC4-' + i).split('|');
+        var dataC4 = window.sessionStorage.getItem('arrayC4-' + i).split('|');
         var info =
             '<tr>' +
             '<td>' + dataC4[0] + '</td>' +
