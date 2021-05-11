@@ -14,29 +14,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
             crossorigin="anonymous">
-    
-    <script src="js/scripts.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin="">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
             crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+            </script>
+    <script src="js/scripts.js"></script>
 </head>
 
 <body>
-    <header id="myHeader" style="background-image: url('./img/tlm-casa.jpg'); background-position: center; background-size: cover;">
+    <header id="myHeader" style="background-image: url('./img/Encabezado/tlm-casa.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
         <nav id="myNavBar" class="navbar justify-content-center">
             <ul class="navbar-nav justify-content-center" style="margin-top: 2.5em;">
                 <li class="nav-item justify-content-center">
-                    <h1 style="color: rgb(255, 255, 255);" class="text-center">Bienvenido a Turistic Places</h1>
+                    <h1 style="color: rgb(255, 255, 255);" class="text-center">Bienvenido a Turístico Atlántico</h1>
                 </li>
+                <!--
                 <li class="nav-item justify-content-center">
                     <h3 style="color: rgb(255, 255, 255);;" class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca</h3>
                 </li>
+                -->
             </ul>
         </nav>
     </header>
@@ -44,7 +48,11 @@
     <div id="main">
         <div id="main-container">
             <div class="row justify-content-center">
-                <div class="col-11">
+                <div class="col-12 col-md-11">
+                    <h3 class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca y cerca del Río Pacuare</h3>
+                    <h5 class="text-center">Seleccione uno de los lugares marcados en el mapa, al presionar el link encontra más información sobre el lugar</h5>
+                </div>
+                <div class="col-11 col-md-10">
                     <div id="mapid"></div>
                 </div>
             </div>

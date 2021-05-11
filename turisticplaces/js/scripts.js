@@ -28,7 +28,7 @@ function callMap() {
     siwakabata.bindPopup("<b>Finca Agroecológica Siwakabata, Limón</b>");
 
     var koswak = L.marker([9.514232225752258, -82.94821899958032]).addTo(mymap);
-    koswak.bindPopup("<b> <a href=''> Koswak Úsure </a> </b>");
+    koswak.bindPopup("<b> <a href='koswakusure.html'> Koswak Úsure </a> </b>");
     
     var shuabb = L.marker([9.537590882501654, -82.87343439441216]).addTo(mymap);
     shuabb.bindPopup("<b> Refugio Ecoturístico de Shuabb </b>");
@@ -36,6 +36,7 @@ function callMap() {
     //Cantones
     //var geojson_url = "https://opendata.arcgis.com/datasets/249bc8711c33493a90b292b55ed3abad_0.geojson";
     //Provincias
+    /*
     var geojson_url = "https://opendata.arcgis.com/datasets/6e2ec42966d54e7087d9da25ad78abe0_0.geojson";
     fetch(
         geojson_url
@@ -51,6 +52,11 @@ function callMap() {
             }).addTo(mymap);
         }
     )
+    */
+}
+
+function returnInit() {
+    window.location.href = "index.html";
 }
 
 function secondMap() { 
