@@ -8,6 +8,7 @@
         <meta name="description" content="Turistic Places" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
         <link rel="stylesheet"
             href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -24,12 +25,12 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous">
         </script>
+        <script src="js/scripts.js"></script>
         <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin="">
         </script>
-        <script src="js/scripts.js"></script>
         <link rel="stylesheet"
               href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
               media="screen">
@@ -75,18 +76,67 @@
                     </div>
                     -->
                     <!---->
-                    <div class="myCards col-12 col-md-11 text-white shadow-lg p-2 mb-4 rounded">
-                        <legend>Información</legend>
-                        <div class="row justify-content-center">
-                    
+                    <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Información</legend> <hr style="background-color: white;">
+                        <div id="infoTable" class="row justify-content-center align-items-center">
+                            <div class="col-6 col-md-7">
+                                <div class="row justify-content-center" style="padding-left: 1em;">
+                                    <div class="infoCard col-12 col-md-5 rounded border">
+                                        <legend>¿Cómo llegar?</legend>
+                                        <hr style="background-color: white;">
+                                        <p class="text-justify">
+                                            Ingrese en el siguiente link para que se despliegue
+                                            la información de ubicación y poder saber cómo
+                                            llegar a Koswak Úsure.
+                                        </p>
+                                        <div class="info_link text-right" onclick="$('#info-address').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
+                                            VER MÁS
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-5">
+                                <img src="img/Logo/koswakusureLogo.jpg" class="infoImg img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div id="info-address" class="hide">
+                            <div class="backlink" onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
+                                <i class="fi-br-angle-double-left"></i> VOLVER
+                            </div>
+                            <div class="row justify-content-center" style="margin-bottom: 1em;">
+                                <div class="col-12 col-md-6">
+                                    <legend>¿Cómo llegar?</legend>
+                                    <p>Aquí debe ir información de cómo llegar al lugar</p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <legend style="margin-bottom: 0.5em;">Ubicación</legend>
+                                    <div id="mapPlace"></div>
+                                </div>
+                                <script>
+                                    var mymap = L.map('mapPlace');
+                                    mapForPlaces(9.514232225752258, -82.94821899958032);
+                                </script>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="backlink" onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
+                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="backlink text-right" onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
+                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="myCards col-12 col-md-11 text-white shadow-lg p-2 mb-4 rounded">
-                        <legend>Galería</legend>
+                    <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Galería</legend> <hr style="background-color: white;">
                         <div class="row justify-content-center">
                             <div class="col-lg-3 col-md-4 col-xs-6 col-sm-6 thumb">
                                 <a href="img/KoswakUsure/koswakusure1.jpg" class="fancybox" rel="ligthbox">
-                                    <img src="img/KoswakUsure/koswakusure1.jpg" class="zoom img-fluid" alt="">                            
+                                    <img src="img/KoswakUsure/koswakusure1.jpg" class="zoom img-fluid" alt="">
                                 </a>
                             </div>
                             
@@ -95,70 +145,10 @@
                                     <img src="img/KoswakUsure/koswakusure2.jpg" class="zoom img-fluid" alt="">
                                 </a>
                             </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a href="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                   class="fancybox"
-                                   rel="ligthbox">
-                                    <img src="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                         class="zoom img-fluid "
-                                         alt="">
-                                </a>
-                            </div>
                         </div>
                     </div>
-                    <div class="myCards col-12 col-md-11 text-white shadow-lg p-2 mb-4 rounded">
-                        <legend>Contacto</legend>
+                    <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Contacto</legend> <hr style="background-color: white;">
                         <div class="row justify-content-center">
                     
                         </div>
@@ -166,14 +156,6 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            var mymap = L.map('mapid').setView([9.927596642397027, -84.09720968627332], 8);
-            callMap();
-            mymap.on('locationfound', onLocationFound);
-            mymap.on('locationerror', onLocationError);
-            mymap.locate({ setView: true, maxZoom: 8 });
-        </script>
     </body>
 
 </html>

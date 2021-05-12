@@ -1,8 +1,26 @@
+.backlink {
+    margin-bottom: 1em;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
 body {
   font-family: "Asap", sans-serif;
   color:#989898;
   margin:10px;
   font-size:16px;
+}
+
+.content {
+	max-width: 1000px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+    transition: all .5s;
 }
 
 #demo {
@@ -11,16 +29,24 @@ body {
     overflow:hidden;
 }
 
+div.infoCard{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
 .green{
     background-color:#6fb936;
 }
 
-.thumb{
-    margin-bottom: 30px;
+.hide{
+    display: none;
 }
 
-.page-top{
-    margin-top:85px;
+img.infoImg{
+    width: 100%;
+    height: 100%;
+    border-radius:5px;
+    object-fit:cover;
 }
  
 img.zoom {
@@ -34,11 +60,15 @@ img.zoom {
     -ms-transition: all .3s ease-in-out;
 }
 
-.transition {
-    -webkit-transform: scale(1.2); 
-    -moz-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
+.info_link{
+	cursor: pointer;
+	color: #ffffff75;
+	text-decoration: none;
+    margin-bottom: 0.5em;
+}
+
+.modal-footer{
+  display:none;  
 }
 
 .modal-header {
@@ -49,8 +79,23 @@ img.zoom {
     color:#000;
 }
 
-.modal-footer{
-  display:none;  
+.page-top{
+    margin-top:85px;
+}
+
+.show {
+	display: block;
+}
+
+.thumb{
+    margin-bottom: 30px;
+}
+
+.transition {
+    -webkit-transform: scale(1.2); 
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 button#namePlaceBtn{
@@ -67,6 +112,10 @@ button#namePlaceBtn{
 
 #mapid { 
     height: 590px;
+}
+
+#mapPlace{
+    height: 220px;
 }
 
 .myCards{

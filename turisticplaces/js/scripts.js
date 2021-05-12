@@ -32,31 +32,30 @@ function callMap() {
     
     var shuabb = L.marker([9.537590882501654, -82.87343439441216]).addTo(mymap);
     shuabb.bindPopup("<b> Refugio Ecoturístico de Shuabb </b>");
-
-    //Cantones
-    //var geojson_url = "https://opendata.arcgis.com/datasets/249bc8711c33493a90b292b55ed3abad_0.geojson";
-    //Provincias
-    /*
-    var geojson_url = "https://opendata.arcgis.com/datasets/6e2ec42966d54e7087d9da25ad78abe0_0.geojson";
-    fetch(
-        geojson_url
-    ).then(
-        res => res.json()
-    ).then(
-        data => {
-            L.geoJson(data, {
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup(feature.properties['NPROVINCIA']);
-                    //layer.bindPopup(feature.properties['NOM_CANT']);
-                }
-            }).addTo(mymap);
-        }
-    )
-    */
 }
 
 function returnInit() {
     window.location.href = "index.html";
+}
+
+function mapForPlaces(num1, num2) {
+    //MapBox
+    L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmF1MTI5OCIsImEiOiJja20yZ3d4bjQxNG05MnVyM2RnM3ljbHlyIn0.lh539RJvcX-e99_yxawaLw', {
+            maxZoom: 18,
+		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		    id: 'mapbox/satellite-streets-v11',
+		    tileSize: 512,
+		    zoomOffset: -1
+        }
+    ).addTo(mymap);
+
+    var koswak = L.marker([num1, num2]).addTo(mymap);
+    koswak.bindPopup("<b> Aquí está <strong>Koswak Úsure</strong> </b>");
+
+    mymap.setView([num1, num2], 8);
+    mymap.invalidateSize();
 }
 
 function secondMap() { 
