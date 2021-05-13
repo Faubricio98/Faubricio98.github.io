@@ -7,7 +7,7 @@
         <title>Turistic Places</title>
         <meta name="description" content="Turistic Places" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="./css/styles.css" />
         <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
         <link rel="stylesheet"
@@ -26,6 +26,7 @@
             crossorigin="anonymous">
         </script>
         <script src="js/scripts.js"></script>
+        <script src="js/galery.js"></script>
         <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -64,18 +65,6 @@
         <div id="main">
             <div id="main-container">
                 <div class="row justify-content-center">
-                    <!--
-                    <div class="col-12 col-md-11">
-                        <h3 class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca y cerca del
-                            Río Pacuare</h3>
-                        <h5 class="text-center">Seleccione uno de los lugares marcados en el mapa, al presionar el link
-                            encontra más información sobre el lugar</h5>
-                    </div>
-                    <div class="col-11 col-md-10">
-                        <div id="mapid"></div>
-                    </div>
-                    -->
-                    <!---->
                     <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
                         <legend class="the-legend">Información</legend> <hr style="background-color: white;">
                         <div id="infoTable" class="row justify-content-center align-items-center">
@@ -114,7 +103,7 @@
                                 </div>
                                 <script>
                                     var mymap = L.map('mapPlace');
-                                    mapForPlaces(9.514232225752258, -82.94821899958032);
+                                    mapForPlaces(9.514232225752258, -82.94821899958032, 'Koswak Úsure');
                                 </script>
                             </div>
                             <div class="row">
@@ -131,21 +120,15 @@
                             </div>
                         </div>
                     </div>
+                    <!--Cuadro de galería-->
                     <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
-                        <legend class="the-legend">Galería</legend> <hr style="background-color: white;">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-3 col-md-4 col-xs-6 col-sm-6 thumb">
-                                <a href="img/KoswakUsure/koswakusure1.jpg" class="fancybox" rel="ligthbox">
-                                    <img src="img/KoswakUsure/koswakusure1.jpg" class="zoom img-fluid" alt="">
-                                </a>
-                            </div>
-                            
-                            <div class="col-lg-3 col-md-4 col-xs-6 col-sm-6 thumb">
-                                <a href="img/KoswakUsure/koswakusure2.jpg" class="fancybox" rel="ligthbox">
-                                    <img src="img/KoswakUsure/koswakusure2.jpg" class="zoom img-fluid" alt="">
-                                </a>
-                            </div>
-                        </div>
+                        <legend class="the-legend">Galería</legend>
+                        <hr style="background-color: white;">
+                        <div id="galery"
+                             class="row justify-content-center"></div>
+                        <script>
+                            createGalery('KoswakUsure', 'koswakusure', 'jpg', 2)
+                        </script>
                     </div>
                     <div class="myCards col-11 text-white shadow-lg p-2 mb-4 rounded">
                         <legend class="the-legend">Contacto</legend> <hr style="background-color: white;">

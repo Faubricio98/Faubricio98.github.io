@@ -31,14 +31,14 @@ function callMap() {
     koswak.bindPopup("<b> <a href='koswakusure.html'> Koswak Úsure </a> </b>");
     
     var shuabb = L.marker([9.537590882501654, -82.87343439441216]).addTo(mymap);
-    shuabb.bindPopup("<b> Refugio Ecoturístico de Shuabb </b>");
+    shuabb.bindPopup("<b> <a href='shuabb.html'> Albergue Indígena de Alojamiento Shuabb </a> </b>");
 }
 
 function returnInit() {
     window.location.href = "index.html";
 }
 
-function mapForPlaces(num1, num2) {
+function mapForPlaces(num1, num2, name) {
     //MapBox
     L.tileLayer(
         'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmF1MTI5OCIsImEiOiJja20yZ3d4bjQxNG05MnVyM2RnM3ljbHlyIn0.lh539RJvcX-e99_yxawaLw', {
@@ -50,9 +50,14 @@ function mapForPlaces(num1, num2) {
 		    zoomOffset: -1
         }
     ).addTo(mymap);
-
-    var koswak = L.marker([num1, num2]).addTo(mymap);
-    koswak.bindPopup("<b> Aquí está <strong>Koswak Úsure</strong> </b>");
+    var icon = L.icon({
+        iconUrl: './img/Logo/koswakusureIcon.png',
+        iconSize:     [38, 66.161], // size of the icon
+        iconAnchor:   [22, 65.161], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -66] // point from which the popup should open relative to the iconAnchor
+    });
+    var place = L.marker([num1, num2] /*, {icon: icon}*/).addTo(mymap);
+    place.bindPopup("<b> Aquí está " + name + "</b>");
 
     mymap.setView([num1, num2], 8);
     mymap.invalidateSize();
