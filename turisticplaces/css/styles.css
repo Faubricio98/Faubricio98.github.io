@@ -1,12 +1,21 @@
+a{
+    text-decoration: none;
+	cursor: pointer;
+}
+
 .backlink {
     margin-bottom: 1em;
 	font-size: 14px;
-	color: #fff;
+	color: #ffffff75;
 	text-decoration: none;
 	cursor: pointer;
 	text-transform: uppercase;
     margin-left: 1em;
     margin-right: 1em;
+}
+
+.backlink:hover{
+    color: #ffffff;
 }
 
 body {
@@ -41,7 +50,7 @@ div.infoCard{
     display: none;
 }
 
-img.infoImg{
+img.infoImg, img.mainImg{
     width: max-content;
     height: max-content;
     border-radius:5px;
@@ -64,6 +73,10 @@ img.zoom {
 	color: #ffffff75;
 	text-decoration: none;
     margin-bottom: 0.5em;
+}
+
+.info_link:hover{
+    color: white;
 }
 
 .legendCard{
@@ -145,10 +158,21 @@ button#namePlaceBtn{
     margin-left: 0.5em;
 }
 
-/* On screens that are 992px wide or less, go from four columns to two columns */
-@media (max-width: 992px) {
+/* Pantallas md */
+@media (max-width: 991px) {
     button#namePlaceBtn{
         width: 50%;
+    }
+
+    img.infoImg{
+        margin-top: 25%;
+        width: auto;
+        height: auto;
+    }
+
+    img.mainImg{
+        width: 0px;
+        height: 0px;
     }
 
     .navbar{
@@ -166,9 +190,15 @@ button#namePlaceBtn{
     }
 }
 
-@media (max-width: 700px) {
+/* Pantallas sm */
+@media (max-width: 767px) {
     button#namePlaceBtn{
         width: 50%;
+    }
+
+    img.infoImg{
+        width: auto;
+        height: auto;
     }
 
     .navbar{
@@ -186,10 +216,19 @@ button#namePlaceBtn{
     }
 }
 
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+/* Pantallas xs */
+@media (max-width: 575px) {
     button#namePlaceBtn{
         width: 50%;
+    }
+
+    .colInfoImg{
+        height: 0px;
+    }
+
+    img.infoImg{
+        width: 0px;
+        height: 0px;
     }
 
     .navbar{

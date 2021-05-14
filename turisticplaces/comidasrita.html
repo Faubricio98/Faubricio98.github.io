@@ -4,18 +4,12 @@
 
     <head>
         <meta charset='utf-8'>
-        <title>Albergue Indígena de Alojamiento Shuabb</title>
-        <meta name="description"
-              content="Turistic Places" />
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <link rel="stylesheet"
-              type="text/css"
-              href="./css/styles.css" />
-        <link rel="stylesheet"
-              href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
-        <link rel="stylesheet"
-              href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+        <title>Comidas Rita</title>
+        <meta name="description" content="Comidas Rita" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+        <link rel="stylesheet" href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
         <link rel="stylesheet"
               href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
               integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -59,15 +53,18 @@
 
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg text-white bg-dark" style="background-color: rgb(31, 31, 31);">
+            <nav class="navbar navbar-expand-lg text-white bg-dark"
+                 style="background-color: rgb(31, 31, 31);">
                 <a href="index.html">
-                    <img class="the-logo"
-                         src="img/Logo/koswakusureLogo.jpg"
+                    <img class="the-logo rounded-circle"
+                         src="img/Logo/comidasritaLogo.jpeg"
                          width="70"
                          height="80">
                 </a>
-                <legend class="the-legend">Albergue Indígena de Alojamiento Shuabb</legend>
-                <button onclick="returnInit()" id="namePlaceBtn" class="btn text-white border">Turistic Places</button>
+                <legend class="the-legend">Comidas Rita</legend>
+                <button onclick="returnInit()"
+                        id="namePlaceBtn"
+                        class="btn text-white border">Turistic Places</button>
             </nav>
         </header>
 
@@ -78,15 +75,18 @@
                     <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
                         <legend class="the-legend">Información</legend>
                         <hr style="background-color: white;">
-                        <div id="infoTable" class="row justify-content-center align-items-center" style="padding-right: 2em;">
+                        <div id="infoTable"
+                             class="row justify-content-center align-items-center"
+                             style="padding-right: 2em;">
                             <div class="col-11 col-md-12 col-lg-7">
-                                <div class="row justify-content-center" style="padding-left: 1em;">
+                                <div class="row justify-content-center"
+                                     style="padding-left: 1em;">
                                     <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
                                         <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
                                         <p class="text-justify">
                                             Ingrese en el siguiente link para que se despliegue
                                             la información de ubicación y poder saber cómo
-                                            llegar al Albergue Indígena de Alojamiento Shuabb.
+                                            llegar a Comidas Rita.
                                         </p>
                                         <div class="info_link text-right mt-auto"
                                              onclick="$('#info-address').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
@@ -107,9 +107,8 @@
                                     <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
                                         <legend class="legendCard border-bottom">Servicios</legend>
                                         <p class="text-justify">
-                                            Ingrese en el siguiente link para conocer los servicios que 
-                                            se brindan en el lugar, algunas recomendaciones e información 
-                                            sobre las tarifas de hospedaje y transporte. 
+                                            Ingrese en el siguiente link para conocer los servicios que
+                                            se brindan en el lugar e información sobre las tarifas de hospedaje.
                                         </p>
                                         <div class="info_link text-right mt-auto"
                                              onclick="$('#info-services').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
@@ -119,8 +118,8 @@
                                     <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
                                         <legend class="legendCard border-bottom">Contacto</legend>
                                         <p class="text-justify">
-                                            Ingrese en el siguiente link para conocer información de contacto 
-                                            con el/la propietario (a).
+                                            Ingrese en el siguiente link para conocer información de contacto
+                                            con el propietario.
                                         </p>
                                         <div class="info_link text-right mt-auto"
                                              onclick="$('#info-contact').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
@@ -130,28 +129,28 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-12 col-lg-5">
-                                <img src="img/Shuabb/shuabb-5.jpeg"
-                                     class="mainImg img-fluid"
+                                <img src="img/ComidasRita/comidasrita-1.jpeg"
+                                     class="mainImg img-fluid mx-auto d-block"
                                      alt="">
                             </div>
                         </div>
                         <!--Cuadro sobre cómo llegar-->
-                        <div id="info-address" class="hide">
-                            <div class="backlink" onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
+                        <div id="info-address"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
                                 <i class="fi-br-angle-double-left"></i> VOLVER
                             </div>
-                            <div class="row justify-content-center" style="margin-bottom: 1em;">
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
                                 <div class="col-12 col-md-6">
                                     <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
                                     <p class="text-justify">
-                                        Bambú, Shuabb de Talamanca. Cruzando el río Yorkin, 
-                                        1 hora de camino o trayecto por río, colindando con 
-                                        Panamá, una hora.
+                                        500 metros este del cementerio de Pacayitas, La Suiza, Cartago, Costa Rica.
                                     </p>
-                                    <h4 style="margin-top: 1em;">
-                                        <a href="https://www.google.com/maps/place/Refugio+Ecotur%C3%ADstico+de+Shuabb/@9.535898,-82.8791851,17z/data=!4m12!1m6!3m5!1s0x8fa65f6efb2847b3:0x4962b75b3038700c!2sRefugio+Ecotur%C3%ADstico+de+Shuabb!8m2!3d9.535898!4d-82.876991!3m4!1s0x8fa65f6efb2847b3:0x4962b75b3038700c!8m2!3d9.535898!4d-82.876991">
-                                            <img src="img/Logo/googleMapsLogo.svg"
-                                                 alt="" height="40"> Albergue Indígena de Alojamiento Shuabb
+                                    <h4 style="margin-top: 1em;"> 
+                                        <a href="https://www.google.com/maps/place/Comidas+Rita/@9.881643,-83.5779679,17z/data=!4m5!3m4!1s0x8fa72adecfaa0dcf:0x917881e2c45cd48b!8m2!3d9.881643!4d-83.5757738">
+                                            <img src="img/Logo/googleMapsLogo.svg" alt="" height="40"> Comidas Rita
                                         </a>
                                     </h4>
                                 </div>
@@ -161,7 +160,7 @@
                                 </div>
                                 <script>
                                     var mymap = L.map('mapPlace');
-                                    mapForPlaces(9.536130765922726, -82.87699100329527, 'Albergue Indígena de Alojamiento Shuabb');
+                                    mapForPlaces(9.881756503539735, -83.57578638316498, 'Comidas Rita');
                                 </script>
                             </div>
                             <div class="row">
@@ -176,35 +175,33 @@
                         </div>
 
                         <!--Cuadro sobre las características-->
-                        <div id="info-feature" class="hide">
-                            <div class="backlink" onclick="$('#info-feature').hide( 500 ); $('#infoTable').show( 500 );">
+                        <div id="info-feature"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-feature').hide( 500 ); $('#infoTable').show( 500 );">
                                 <i class="fi-br-angle-double-left"></i> VOLVER
                             </div>
-                            <div class="row justify-content-center" style="margin-bottom: 1em;">
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <legend class="legendCard border-bottom">Características</legend>
                                     <p class="text-justify">
-                                        Hospedaje rural dentro de una comunidad indígena, con una 
-                                        capacidad para veinte personas. Las instalaciones están 
-                                        construidas con materiales naturales, madera de árboles 
-                                        de la zona, hojas de palma, bambú entre otros, los cuales 
-                                        son extraídos en la misma comunidad. Estas habitaciones 
-                                        son considerablemente abiertas lo que permite la 
-                                        convivencia cercana con el medio natural y cultural de 
-                                        la localidad. Se duerme en colchones al nivel del suelo 
-                                        con toldo para los mosquitos y en otras opciones, con 
-                                        tiendas de campaña.
+                                        Comidas Rita es una empresa local localizada en San Vicente de La Suiza 
+                                        que se dedica a la elaboración de comidas típicas, saludables y de buena 
+                                        calidad. Ademas de esto, cuenta con servicio de hospedaje. Este lugar 
+                                        pertenece a una de las etapas de "El Camino de Costa Rica."
                                     </p>
                                 </div>
                                 <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
-                                    <img src="img/Shuabb/shuabb-8.jpeg"
+                                    <img src="img/ComidasRita/comidasrita-8.jpeg"
                                          class="infoImg img-fluid"
                                          alt="">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="backlink" onclick="$('#info-feature').hide( 500 ); $('#info-address').show( 500 ); setTimeout(function() {mymap.invalidateSize();}, 1000);">
+                                    <div class="backlink"
+                                         onclick="$('#info-feature').hide( 500 ); $('#info-address').show( 500 ); setTimeout(function() {mymap.invalidateSize();}, 1000);">
                                         <i class="fi-br-angle-double-left"></i> ANTERIOR
                                     </div>
                                 </div>
@@ -218,30 +215,29 @@
                         </div>
 
                         <!--Cuadro sobre los servicios del lugar-->
-                        <div id="info-services" class="hide">
-                            <div class="backlink" onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
+                        <div id="info-services"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
                                 <i class="fi-br-angle-double-left"></i> VOLVER
                             </div>
-                            <div class="row justify-content-center" style="margin-bottom: 1em;">
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <legend class="legendCard border-bottom">Servicios</legend>
                                     <p class="text-justify">
-                                        Algunos de los servicios son el alojamiento, la alimentación y 
-                                        los tours guiados. Además, se recomienda llevar paño, sombrero 
-                                        o gorra, repelente, bloqueador y botas en época de lluvia.
+                                        Dentro de los servicios que se brindan en Comidas Rita, se 
+                                        encuentran la elaboración de comidas típicas, saludables y 
+                                        de buena calidad. Ademas de esto, cuenta con servicio de hospedaje.
                                     </p>
                                     <legend class="legendCard border-bottom">Tarifas</legend>
                                     <p class="text-justify">
-                                        El costo del paso por el Río Yorkin es de 200 colones
-                                        y el trayecto hasta Shuabb es caminando o en chapulín
-                                        con un precio de 15 mil colones el viaje.
-                                        En cuanto al hospedaje, las tarifas son según la
-                                        cantidad de personas, días a hospedarse, actividades
-                                        culturales y tour de interés.
+                                        El costo por el hospedaje por persona es de 20 mil colones por noche 
+                                        (El servicio de hospedaje se encuentra suspendido).
                                     </p>
                                 </div>
                                 <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
-                                    <img src="img/Shuabb/shuabb-3.jpeg"
+                                    <img src="img/ComidasRita/comidasrita-2.jpeg"
                                          class="infoImg img-fluid"
                                          alt="">
                                 </div>
@@ -263,8 +259,10 @@
                         </div>
 
                         <!--Cuadro sobre las tarifas del lugar-->
-                        <div id="info-contact" class="hide">
-                            <div class="backlink" onclick="$('#info-contact').hide( 500 ); $('#infoTable').show( 500 );">
+                        <div id="info-contact"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-contact').hide( 500 ); $('#infoTable').show( 500 );">
                                 <i class="fi-br-angle-double-left"></i> VOLVER
                             </div>
                             <div class="row justify-content-center"
@@ -272,19 +270,28 @@
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <legend class="legendCard border-bottom">Contacto</legend>
                                     <p class="text-justify">
-                                        Si desea saber más sobre el lugar, puede comunicarse con la propietaria 
-                                        Maribel Iglesias al número de teléfono que aparece a continuación.
+                                        Si desea saber más sobre el lugar, puede comunicarse con la propietaria
+                                        Rita Quirós a través de los siguientes medios.
                                     </p>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 align-items-center">
-                                    <div class="card overflow-hidden bg-dark border rounded" style="margin-bottom: 1em;">
+                                    <div class="card overflow-hidden bg-dark border rounded"
+                                         style="margin-bottom: 1em;">
                                         <div class="card-content">
                                             <div class="card-body cleartfix">
                                                 <div class="media align-items-stretch">
                                                     <div class="media-body text-white">
-                                                        <h3> <i style="color: rgb(255, 255, 255);" class="fi-br-portrait"></i> Maribel Iglesias</h3>
-                                                        <small class="text-justify">Presidenta de la Asociación Comunitaria de Ecoturismo y Agricultura Orgánica</small>
-                                                        <h4> <a href="https://wa.me/50685492321?text=Maribel Iglesias - Albergue Indígena de Alojamiento Shuabb"><img src="img/Logo/wppLogo.svg" alt="" height="40"> (+506) 8549 2321 </a></h4>
+                                                        <h3> <i style="color: rgb(255, 255, 255);"
+                                                               class="fi-br-portrait"></i> Rita Quirós </h3>
+                                                        <small class="text-justify">Propietaria</small>
+                                                        <h4 style="margin-top: 1em;"> 
+                                                            <a href="https://wa.me/50686227680?text=Rita Quirós - Comidas Rita">
+                                                                <img src="img/Logo/wppLogo.svg" alt="" height="40"> (+506) 8549 2321 
+                                                            </a> <br> <br>
+                                                            <a href="https://www.facebook.com/comidasrita">
+                                                                <img src="img/Logo/facebookLogo.svg" alt="" height="40"> Comidas Rita
+                                                            </a>
+                                                        </h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,9 +322,10 @@
                     <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
                         <legend class="the-legend">Galería</legend>
                         <hr style="background-color: white;">
-                        <div id="galery" class="row justify-content-center"></div>
+                        <div id="galery"
+                             class="row justify-content-center"></div>
                         <script>
-                            createGalery('Shuabb', 'shuabb', 'jpeg', 8)
+                            createGalery('ComidasRita', 'comidasrita', 'jpeg', 9)
                         </script>
                     </div>
 

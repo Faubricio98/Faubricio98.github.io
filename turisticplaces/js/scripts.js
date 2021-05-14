@@ -24,13 +24,16 @@ function callMap() {
         }
     ).addTo(mymap);
 
+    var rita = L.marker([9.881756503539735, -83.57578638316498]).addTo(mymap);
+    rita.bindPopup("<b> <a href='comidasrita.html'> Comidas Rita </a> </b>");
+    
     var siwakabata = L.marker([9.584889653459406, -82.92993982900403]).addTo(mymap);
     siwakabata.bindPopup("<b>Finca Agroecológica Siwakabata, Limón</b>");
 
     var koswak = L.marker([9.514232225752258, -82.94821899958032]).addTo(mymap);
     koswak.bindPopup("<b> <a href='koswakusure.html'> Koswak Úsure </a> </b>");
     
-    var shuabb = L.marker([9.537590882501654, -82.87343439441216]).addTo(mymap);
+    var shuabb = L.marker([9.536130765922726, -82.87699100329527]).addTo(mymap);
     shuabb.bindPopup("<b> <a href='shuabb.html'> Albergue Indígena de Alojamiento Shuabb </a> </b>");
 }
 
