@@ -24,9 +24,6 @@ function callMap() {
         }
     ).addTo(mymap);
 
-    var rita = L.marker([9.881756503539735, -83.57578638316498]).addTo(mymap);
-    rita.bindPopup("<b> <a href='comidasrita.html'> Comidas Rita </a> </b>");
-    
     var siwakabata = L.marker([9.584889653459406, -82.92993982900403]).addTo(mymap);
     siwakabata.bindPopup("<b>Finca Agroecológica Siwakabata, Limón</b>");
 
@@ -35,6 +32,12 @@ function callMap() {
     
     var shuabb = L.marker([9.536130765922726, -82.87699100329527]).addTo(mymap);
     shuabb.bindPopup("<b> <a href='shuabb.html'> Albergue Indígena de Alojamiento Shuabb </a> </b>");
+
+    var rita = L.marker([9.881756503539735, -83.57578638316498]).addTo(mymap);
+    rita.bindPopup("<b> <a href='comidasrita.html'> Comidas Rita </a> </b>");
+
+    var pastoros = L.marker([9.90898203748013, -83.56620934562125]).addTo(mymap);
+    pastoros.bindPopup("<b> <a href='posadapastoros.html'> Posada Los Pastoros </a> </b>");
 }
 
 function returnInit() {
