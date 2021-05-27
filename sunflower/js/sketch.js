@@ -1,9 +1,9 @@
-let iter = 510;//iterations
+let iter = 500;//iterations
 let angle = 137.5077; //golden angle
 let circleSize = 3;
 let petalSize = 1;
 let w = screen.width - 200;
-let h = 300;
+let h = 500;
 let ang1 = 60
 let ang2 = 40
 let ang3 = 20
@@ -21,10 +21,13 @@ function setup() {
 
 function draw() {
   background(0, 189, 255);
-  cnv.translate(w / 2, h / 2);
+  cnv.translate(w / 2, 150);
 
   //dibujamos los pétalos
+  tallo();
   petals();
+  //leafs();
+  //angleMode(DEGREES);
 
   //dibujamos el circulo central del girasol
   stroke(255);
@@ -41,20 +44,34 @@ function draw() {
     createFractal(rotation, distance);
     rotation += angle;
     distance += delta;
-    fill(255, 227, 117);
+    
   }
-
-  //leafs();
-  angleMode(DEGREES);
   //noLoop();
   //aumentamos la rotacion
   r = r + 1.5;
+  petalSize = petalSize + 1.9;
 }
 
 function createFractal(_rotation, _distance) {
   push();
+  noStroke();
+  fill( 163, 120, 10 );
   rotate(_rotation);
   ellipse(_distance, 0, circleSize, circleSize);
+  pop();
+}
+
+function tallo() {
+  push();
+  stroke( 53, 177, 36 );
+  strokeWeight(8);
+  noFill();
+  if (petalSize <= 250) {
+    line(0, 0, 0, petalSize);
+    //arc(x, y, w, h, start, stop);
+  } else {
+    line(0, 0, 0, 250);
+  }
   pop();
 }
 
@@ -117,7 +134,6 @@ function petals() {
     rotate(360 / ang3);
   }
   pop();
-  petalSize = petalSize + 1.9;
 }
 
 function leafs() {
