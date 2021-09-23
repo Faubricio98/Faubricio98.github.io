@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Posada Los Pastoros</title>
+        <meta name="description"
+              content="Posada Pastoros" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet"
+              type="text/css"
+              href="./css/styles.css" />
+        <link rel="stylesheet"
+              href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+        <link rel="stylesheet"
+              href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+              integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+              crossorigin="" />
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous">
+                </script>
+        <script src="js/scripts.js"></script>
+        <script src="js/galery.js"></script>
+        <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                crossorigin="">
+                </script>
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+              media="screen">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: "none",
+                    closeEffect: "none"
+                });
+                $(".zoom").hover(function () {
+                    $(this).addClass('transition');
+                }, function () {
+                    $(this).removeClass('transition');
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg text-white bg-dark"
+                 style="background-color: rgb(31, 31, 31);">
+                <a href="index.html">
+                    <img class="the-logo rounded-circle"
+                         src="img/Logo/comidasritaLogo.jpeg"
+                         width="70"
+                         height="80">
+                </a>
+                <legend class="the-legend">Posada Los Pastoros</legend>
+                <button onclick="returnInit()"
+                        id="namePlaceBtn"
+                        class="btn text-white border">Turistic Places</button>
+            </nav>
+        </header>
+
+        <div id="main">
+            <div id="main-container">
+                <div class="row justify-content-center">
+                    <!--Cuadro informativo-->
+                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Información</legend>
+                        <hr style="background-color: white;">
+                        <div id="infoTable"
+                             class="row justify-content-center align-items-center"
+                             style="padding-right: 2em;">
+                            <div class="col-11 col-md-12 col-lg-7">
+                                <div class="row justify-content-center"
+                                     style="padding-left: 1em;">
+                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
+                                        <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
+                                        <p class="text-justify">
+                                            Ingrese en el siguiente link para que se despliegue
+                                            la información de ubicación y poder saber cómo
+                                            llegar a Posada Los Pastoros.
+                                        </p>
+                                        <div class="info_link text-right mt-auto"
+                                             onclick="$('#info-address').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
+                                            VER MÁS
+                                        </div>
+                                    </div>
+                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
+                                        <legend class="legendCard border-bottom">Características</legend>
+                                        <p class="text-justify">
+                                            Ingrese en el siguiente link para que se despliegue
+                                            la información para conocer más sobre el lugar.
+                                        </p>
+                                        <div class="info_link text-right mt-auto"
+                                             onclick="$('#info-feature').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
+                                            VER MÁS
+                                        </div>
+                                    </div>
+                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
+                                        <legend class="legendCard border-bottom">Servicios</legend>
+                                        <p class="text-justify">
+                                            Ingrese en el siguiente link para conocer los servicios que
+                                            se brindan en el lugar e información sobre las tarifas de hospedaje.
+                                        </p>
+                                        <div class="info_link text-right mt-auto"
+                                             onclick="$('#info-services').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
+                                            VER MÁS
+                                        </div>
+                                    </div>
+                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
+                                        <legend class="legendCard border-bottom">Contacto</legend>
+                                        <p class="text-justify">
+                                            Ingrese en el siguiente link para conocer información de contacto
+                                            con el propietario.
+                                        </p>
+                                        <div class="info_link text-right mt-auto"
+                                             onclick="$('#info-contact').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
+                                            VER MÁS
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-5">
+                                <img src="img/ComidasRita/comidasrita-1.jpeg"
+                                     class="mainImg img-fluid mx-auto d-block"
+                                     alt="">
+                            </div>
+                        </div>
+                        <!--Cuadro sobre cómo llegar-->
+                        <div id="info-address"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
+                                <i class="fi-br-angle-double-left"></i> VOLVER
+                            </div>
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
+                                <div class="col-12 col-md-6">
+                                    <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
+                                    <p class="text-justify">
+                                        500 metros este del cementerio de Pacayitas, La Suiza, Cartago, Costa Rica.
+                                    </p>
+                                    <h4 style="margin-top: 1em;">
+                                        <a
+                                           href="https://goo.gl/maps/TwhpdWwvYHV31n4L7">
+                                            <img src="img/Logo/googleMapsLogo.svg"
+                                                 alt=""
+                                                 height="40"> Comidas Rita
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <legend class="legendCard border-bottom">Ubicación</legend>
+                                    <div id="mapPlace"></div>
+                                </div>
+                                <script>
+                                    var mymap = L.map('mapPlace');
+                                    mapForPlaces(9.881756503539735, -83.57578638316498, 'Comidas Rita');
+                                </script>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"></div>
+                                <div class="col-6">
+                                    <div class="backlink text-right"
+                                         onclick="$('#info-address').hide( 500 ); $('#info-feature').show( 500 );">
+                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cuadro sobre las características-->
+                        <div id="info-feature"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-feature').hide( 500 ); $('#infoTable').show( 500 );">
+                                <i class="fi-br-angle-double-left"></i> VOLVER
+                            </div>
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <legend class="legendCard border-bottom">Características</legend>
+                                    <p class="text-justify">
+                                        Comidas Rita es una empresa local localizada en San Vicente de La Suiza
+                                        que se dedica a la elaboración de comidas típicas, saludables y de buena
+                                        calidad. Ademas de esto, cuenta con servicio de hospedaje. Este lugar
+                                        pertenece a una de las etapas de "El Camino de Costa Rica."
+                                    </p>
+                                </div>
+                                <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
+                                    <img src="img/ComidasRita/comidasrita-8.jpeg"
+                                         class="infoImg img-fluid"
+                                         alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="backlink"
+                                         onclick="$('#info-feature').hide( 500 ); $('#info-address').show( 500 ); setTimeout(function() {mymap.invalidateSize();}, 1000);">
+                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="backlink text-right"
+                                         onclick="$('#info-feature').hide( 500 ); $('#info-services').show( 500 );">
+                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cuadro sobre los servicios del lugar-->
+                        <div id="info-services"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
+                                <i class="fi-br-angle-double-left"></i> VOLVER
+                            </div>
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <legend class="legendCard border-bottom">Servicios</legend>
+                                    <p class="text-justify">
+                                        Dentro de los servicios que se brindan en Comidas Rita, se
+                                        encuentran la elaboración de comidas típicas, saludables y
+                                        de buena calidad. Ademas de esto, cuenta con servicio de hospedaje.
+                                    </p>
+                                    <legend class="legendCard border-bottom">Tarifas</legend>
+                                    <p class="text-justify">
+                                        El costo por el hospedaje por persona es de 20 mil colones por noche
+                                        (El servicio de hospedaje se encuentra suspendido).
+                                    </p>
+                                </div>
+                                <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
+                                    <img src="img/ComidasRita/comidasrita-2.jpeg"
+                                         class="infoImg img-fluid"
+                                         alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="backlink"
+                                         onclick="$('#info-services').hide( 500 ); $('#info-feature').show( 500 );">
+                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="backlink text-right"
+                                         onclick="$('#info-services').hide( 500 ); $('#info-contact').show( 500 );">
+                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cuadro sobre las tarifas del lugar-->
+                        <div id="info-contact"
+                             class="hide">
+                            <div class="backlink"
+                                 onclick="$('#info-contact').hide( 500 ); $('#infoTable').show( 500 );">
+                                <i class="fi-br-angle-double-left"></i> VOLVER
+                            </div>
+                            <div class="row justify-content-center"
+                                 style="margin-bottom: 1em;">
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <legend class="legendCard border-bottom">Contacto</legend>
+                                    <p class="text-justify">
+                                        Si desea saber más sobre el lugar, puede comunicarse con la propietaria
+                                        Rita Quirós a través de los siguientes medios.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 align-items-center">
+                                    <div class="card overflow-hidden bg-dark border rounded"
+                                         style="margin-bottom: 1em;">
+                                        <div class="card-content">
+                                            <div class="card-body cleartfix">
+                                                <div class="media align-items-stretch">
+                                                    <div class="media-body text-white">
+                                                        <h3> <i style="color: rgb(255, 255, 255);"
+                                                               class="fi-br-portrait"></i> Rita Quirós </h3>
+                                                        <small class="text-justify">Propietaria</small>
+                                                        <h4 style="margin-top: 1em;">
+                                                            <a
+                                                               href="https://wa.me/50686227680?text=Rita Quirós - Comidas Rita">
+                                                                <img src="img/Logo/wppLogo.svg"
+                                                                     alt=""
+                                                                     height="40"> (+506) 8549 2321
+                                                            </a> <br> <br>
+                                                            <a href="https://www.facebook.com/comidasrita">
+                                                                <img src="img/Logo/facebookLogo.svg"
+                                                                     alt=""
+                                                                     height="40"> Comidas Rita
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="backlink"
+                                         onclick="$('#info-contact').hide( 500 ); $('#info-services').show( 500 );">
+                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <!--
+                                    <div class="backlink text-right"
+                                         onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
+                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Cuadro de galería-->
+                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Galería</legend>
+                        <hr style="background-color: white;">
+                        <div id="galery"
+                             class="row justify-content-center"></div>
+                        <script>
+                            createGalery('ComidasRita', 'comidasrita', 'jpeg', 9)
+                        </script>
+                    </div>
+
+                    <!--Cuadro para la información contacto-->
+                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
+                        <legend class="the-legend">Contacto</legend>
+                        <hr style="background-color: white;">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-6 ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
