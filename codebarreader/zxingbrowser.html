@@ -66,15 +66,8 @@
   <script type="text/javascript" src="https://unpkg.com/@zxing/browser@latest"></script>
   <script type="text/javascript">
     window.addEventListener('load', async function() {
-      alert("Start");
       const codeReader = new ZXingBrowser.BrowserMultiFormatReader()
-      alert("1");
-      //const videoInputDevices = await ZXingBrowser.BrowserCodeReader.listVideoInputDevices();
-      await ZXingBrowser.BrowserCodeReader.listVideoInputDevices()
-        .then((videoInputDevices) =>{
-          alert("Hola")
-        });
-      alert("2");
+      const videoInputDevices = await ZXingBrowser.BrowserCodeReader.listVideoInputDevices();
       // choose your media device (webcam, frontal camera, back camera, etc.)
       const selectedDeviceId = videoInputDevices[0].deviceId;
       alert("3");
