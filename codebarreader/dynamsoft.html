@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Dynamsoft Barcode Reader Sample - Hello World (Decoding via Camera)</title>
+    <!--
+      This sample makes use of the library hosted by the CDN jsDelivr. If you would rather use the
+      library offline. Please see the guide on how to host the library: 
+      https://www.dynamsoft.com/barcode-reader/programming/javascript/user-guide/?ver=latest#host-the-library-yourself-recommended
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.6.1/dist/dbr.js"></script>
+</head>
+
+<body>
+    <h2>Minimum Code to Read Barcodes</h2>
+    <button id='readBarcode'>Read Barcode via Camera</button>
+    <script>
+        /** LICENSE ALERT - README
+         * The library requires a license to work, you use the API organizationID to tell the program where to fetch your license.
+         * If the Organizaion ID is not specified, a 7-day (public) trial license will be used by default which is the case in this sample.
+         * Note that network connection is required for this license to work.
+         */
+
+        /* When using your own license, uncomment the following line and specify your Organization ID. */
+        
+        // Dynamsoft.DBR.BarcodeReader.organizationID = "YOUR-ORGANIZATION-ID";
+        
+        /* If you don't have a license yet, you can request a trial on this page: https://www.dynamsoft.com/customer/license/trialLicense?product=dbr&package=js&utm_source=github */
+        /* For more information, please refer to https://www.dynamsoft.com/license-tracking/docs/about/licensefaq.html?ver=latest#how-to-use-a-trackable-license. */
+        
+        /* The API "productKeys" is an alternative way to license the library, the major difference is that it does not require a network. Contact support@dynamsoft.com for more information. */
+        
+        // Dynamsoft.DBR.BarcodeReader.productKeys = "YOUR-PRODUCT-KEY";
+        
+        /** LICENSE ALERT - THE END */
+
+        let pScanner = null;
+        document.getElementById('readBarcode').onclick = async function () {
+            try {
+                let scanner = await (pScanner = pScanner || Dynamsoft.DBR.BarcodeScanner.createInstance());
+                /* 
+                 * onFrameRead is triggered once each frame is read. 
+                 * There can be one or multiple barcodes on each frame.
+                 */
+                scanner.onFrameRead = results => {
+                    console.log("Barcodes on one frame:");
+                    for (let result of results) {
+                        console.log(result.barcodeFormatString + ": " + result.barcodeText);
+                        alert(result.barcodeFormatString + ": " + result.barcodeText);
+                    }
+                };
+                /* 
+                 * onUnduplicatdRead is triggered once a new barcode is found. 
+                 * The amount of time that the library 'remembers' the found barcode is defined by duplicateForgetTime 
+                 * in the ScanSettings interface of the BarcodeScanner class. By default that is set to 3000 ms (or 3 secs) 
+                 */
+                scanner.onUnduplicatedRead = (txt, result) => {
+                    alert(txt);
+                    console.log("Unique Code Found: " + result);
+                }
+                await scanner.show();
+            } catch (ex) {
+                alert(ex.message);
+                throw ex;
+            }
+        };
+    </script>
+</body>
+
+</html>
