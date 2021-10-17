@@ -1,360 +1,280 @@
 <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<html lang="es">
+		<title>Turistic Places - Posada Los Pastoros</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
 
-    <head>
-        <meta charset='utf-8'>
-        <title>Posada Los Pastoros</title>
-        <meta name="description"
-              content="Posada Pastoros" />
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <link rel="stylesheet"
-              type="text/css"
-              href="./css/styles.css" />
-        <link rel="stylesheet"
-              href="css/uicons-bold-rounded/css/uicons-bold-rounded.css">
-        <link rel="stylesheet"
-              href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-        <link rel="stylesheet"
-              href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-              integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-              crossorigin="" />
-        <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-              crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-                integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-                crossorigin="anonymous">
-                </script>
-        <script src="js/scripts.js"></script>
-        <script src="js/galery.js"></script>
-        <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-                crossorigin="">
-                </script>
-        <link rel="stylesheet"
-              href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-              media="screen">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $(".fancybox").fancybox({
-                    openEffect: "none",
-                    closeEffect: "none"
-                });
-                $(".zoom").hover(function () {
-                    $(this).addClass('transition');
-                }, function () {
-                    $(this).removeClass('transition');
-                });
-            });
-        </script>
-    </head>
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+		
+		<!--CSS-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+				crossorigin=""/>
+		
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+		<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+		<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+		
+		<!-- Template Main CSS File -->
+		<link href="assets/css/style.css" rel="stylesheet">
 
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg text-white bg-dark"
-                 style="background-color: rgb(31, 31, 31);">
-                <a href="index.html">
-                    <img class="the-logo rounded-circle"
-                         src="img/Logo/comidasritaLogo.jpeg"
-                         width="70"
-                         height="80">
-                </a>
-                <legend class="the-legend">Posada Los Pastoros</legend>
-                <button onclick="returnInit()"
-                        id="namePlaceBtn"
-                        class="btn text-white border">Turistic Places</button>
-            </nav>
-        </header>
+		<!--Llamadas a JS-->
+		<script src="https://code.jquery.com/jquery-3.6.0.js" 
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+				crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
+				crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+				crossorigin=""></script>
+		<script src="assets/js/scripts.js"></script>
+		<script src="assets/js/galery.js"></script>
+	</head>
 
-        <div id="main">
-            <div id="main-container">
-                <div class="row justify-content-center">
-                    <!--Cuadro informativo-->
-                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
-                        <legend class="the-legend">Información</legend>
-                        <hr style="background-color: white;">
-                        <div id="infoTable"
-                             class="row justify-content-center align-items-center"
-                             style="padding-right: 2em;">
-                            <div class="col-11 col-md-12 col-lg-7">
-                                <div class="row justify-content-center"
-                                     style="padding-left: 1em;">
-                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
-                                        <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
-                                        <p class="text-justify">
-                                            Ingrese en el siguiente link para que se despliegue
-                                            la información de ubicación y poder saber cómo
-                                            llegar a Posada Los Pastoros.
-                                        </p>
-                                        <div class="info_link text-right mt-auto"
-                                             onclick="$('#info-address').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
-                                            VER MÁS
-                                        </div>
-                                    </div>
-                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
-                                        <legend class="legendCard border-bottom">Características</legend>
-                                        <p class="text-justify">
-                                            Ingrese en el siguiente link para que se despliegue
-                                            la información para conocer más sobre el lugar.
-                                        </p>
-                                        <div class="info_link text-right mt-auto"
-                                             onclick="$('#info-feature').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
-                                            VER MÁS
-                                        </div>
-                                    </div>
-                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
-                                        <legend class="legendCard border-bottom">Servicios</legend>
-                                        <p class="text-justify">
-                                            Ingrese en el siguiente link para conocer los servicios que
-                                            se brindan en el lugar e información sobre las tarifas de hospedaje.
-                                        </p>
-                                        <div class="info_link text-right mt-auto"
-                                             onclick="$('#info-services').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
-                                            VER MÁS
-                                        </div>
-                                    </div>
-                                    <div class="infoCard col-12 col-md-5 d-flex flex-column rounded border">
-                                        <legend class="legendCard border-bottom">Contacto</legend>
-                                        <p class="text-justify">
-                                            Ingrese en el siguiente link para conocer información de contacto
-                                            con el propietario.
-                                        </p>
-                                        <div class="info_link text-right mt-auto"
-                                             onclick="$('#info-contact').show(500); $('#infoTable').hide(500); setTimeout(function() {mymap.invalidateSize();}, 1000); ">
-                                            VER MÁS
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12 col-lg-5">
-                                <img src="img/ComidasRita/comidasrita-1.jpeg"
-                                     class="mainImg img-fluid mx-auto d-block"
-                                     alt="">
-                            </div>
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="header fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div id="logo">
+					<h1><a href="index.html"><span>L</span>os <span>P</span>astoros</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+						<li><a class="nav-link scrollto" href="#how-to-get">¿Cómo llegar?</a></li>
+						<li><a class="nav-link scrollto" href="#services">Servicios</a></li>
+						<li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+						<li><a class="nav-link scrollto" href="#screenshots">Galería</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+			</div>
+		</header><!-- End Header -->
+		<!-- ======= Hero Section ======= -->
+		<section id="hero">
+			<div class="hero-container" data-aos="fade-in">
+				<h1>Posada Los Pastoros</h1>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-11 col-md-6">
+                        <p class="text-justify">
+                            Todavía en construcción, la Posada Los Pastoros es una casa de 
+                            campo propiedad de una familia. Situado justo en frente de la 
+                            hermosa vista de las montañas con la futura construcción de la 
+                            pesca, una piscina, y una pequeña granja de animales exóticos.
+                            Tenemos múltiples opciones en nuestra gran propiedad que le 
+                            permitirá explorar y sentir el lado costarricense de la 
+                            naturaleza. Una vez aquí, usted tendrá la oportunidad de ver 
+                            varios tipos de aves y gran cantidad de animales de distintos 
+                            tipos, que nunca han visto antes, incluyendo nuestros propios 
+                            perezosos, situados alrededor de la propiedad.
+                        </p>
+                    </div>
+                    <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
+                        <img src="assets/img/PosadaPastoros/posadapastoros-7.jpeg" class="infoImg img-fluid" alt="">
+                    </div>
+                </div>
+				<a href="#how-to-get" class="btn-get-started scrollto">Ver más</a>
+			</div>
+		</section><!-- End Hero Section -->
+		
+		<main id="main">
+			<!-- ======= Get Started Section ======= -->
+			<section id="how-to-get" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>¿Cómo llegar?</h2>
+					</div>
+				</div>
+				
+				<div class="container" data-aos="fade-up">
+					<div class="row justify-content-center" style="margin-bottom: 1em;">
+                        <div class="col-12 col-md-6">
+                            <legend class="legendCard border-bottom">Dirección</legend>
+                            <p class="text-justify" style="font-size: larger;">
+                                1,5 km al sur de la iglesia Católica de Pacuare, Cartago, Turrialba, Costa Rica
+                            </p>
+                            <h4 style="margin-top: 1em;"> 
+                                <a href="https://www.google.com/maps/place/Posada+Los+Pastoros/@9.9087601,-83.5684249,17z/data=!3m1!4b1!4m5!3m4!1s0x8fa72bf38ed015b5:0x68226957e2eaebad!8m2!3d9.9087601!4d-83.5662308">
+                                    <img src="assets/img/Logo/googleMapsLogo.svg" alt="" height="40"> Posada Los Pastoros
+                                </a>
+                            </h4>
                         </div>
-                        <!--Cuadro sobre cómo llegar-->
-                        <div id="info-address"
-                             class="hide">
-                            <div class="backlink"
-                                 onclick="$('#info-address').hide( 500 ); $('#infoTable').show( 500 );">
-                                <i class="fi-br-angle-double-left"></i> VOLVER
-                            </div>
-                            <div class="row justify-content-center"
-                                 style="margin-bottom: 1em;">
-                                <div class="col-12 col-md-6">
-                                    <legend class="legendCard border-bottom">¿Cómo llegar?</legend>
-                                    <p class="text-justify">
-                                        500 metros este del cementerio de Pacayitas, La Suiza, Cartago, Costa Rica.
-                                    </p>
-                                    <h4 style="margin-top: 1em;">
-                                        <a
-                                           href="https://goo.gl/maps/TwhpdWwvYHV31n4L7">
-                                            <img src="img/Logo/googleMapsLogo.svg"
-                                                 alt=""
-                                                 height="40"> Comidas Rita
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <legend class="legendCard border-bottom">Ubicación</legend>
-                                    <div id="mapPlace"></div>
-                                </div>
-                                <script>
-                                    var mymap = L.map('mapPlace');
-                                    mapForPlaces(9.881756503539735, -83.57578638316498, 'Comidas Rita');
-                                </script>
-                            </div>
-                            <div class="row">
-                                <div class="col-6"></div>
-                                <div class="col-6">
-                                    <div class="backlink text-right"
-                                         onclick="$('#info-address').hide( 500 ); $('#info-feature').show( 500 );">
-                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-12 col-md-4">
+                            <legend class="legendCard border-bottom">Ubicación</legend>
+                            <div id="mapPlace"></div>
                         </div>
+                        <script>
+                            var mymap = L.map('mapPlace');
+                            mapForPlaces(9.9087601, -83.5684249, 'Posada Los Pastoros');
+                        </script>
+                    </div>
+				</div>
+			</section><!-- End Get Started Section -->
 
-                        <!--Cuadro sobre las características-->
-                        <div id="info-feature"
-                             class="hide">
-                            <div class="backlink"
-                                 onclick="$('#info-feature').hide( 500 ); $('#infoTable').show( 500 );">
-                                <i class="fi-br-angle-double-left"></i> VOLVER
-                            </div>
-                            <div class="row justify-content-center"
-                                 style="margin-bottom: 1em;">
-                                <div class="col-12 col-sm-6 col-md-6">
-                                    <legend class="legendCard border-bottom">Características</legend>
-                                    <p class="text-justify">
-                                        Comidas Rita es una empresa local localizada en San Vicente de La Suiza
-                                        que se dedica a la elaboración de comidas típicas, saludables y de buena
-                                        calidad. Ademas de esto, cuenta con servicio de hospedaje. Este lugar
-                                        pertenece a una de las etapas de "El Camino de Costa Rica."
-                                    </p>
-                                </div>
-                                <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
-                                    <img src="img/ComidasRita/comidasrita-8.jpeg"
-                                         class="infoImg img-fluid"
-                                         alt="">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="backlink"
-                                         onclick="$('#info-feature').hide( 500 ); $('#info-address').show( 500 ); setTimeout(function() {mymap.invalidateSize();}, 1000);">
-                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="backlink text-right"
-                                         onclick="$('#info-feature').hide( 500 ); $('#info-services').show( 500 );">
-                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+			<!-- ======= Servicios ======= -->
+			<section id="services" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>Servicios</h2>
+					</div>
+				</div>
+				
+				<div class="container" data-aos="fade-up">
+					<div class="row justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <legend class="legendCard border-bottom">Servicios</legend>
+                            <p class="text-justify">
+                                Poseen alojamiento, estanques de tilapia, tours, senderismo y pesca deportiva, 
+                                espacios para actividades culturales y deportivas, instrucción o cursos de 
+                                gastronomía local, identificación de especies arbóreas de la zona y avistamiento 
+                                de aves. Entre los tours, usted puede escojer ir a a las comunidades indígenas 
+                                de la cuenca media del río Pacuare, a la cuenca media del río Pacuare y afluentes 
+                                cercanos a la zona, al Ceiba Petandra y a las comunidades San Pablo, Pacuare, 
+                                Mollejones,  Pacayitas  y San Vicente.
+                            </p>
+                            <legend class="legendCard border-bottom">Tarifas</legend>
+                            <p class="text-justify">
+                                El costo por el hospedaje es de ₡3000 por noche. La alimentación no se incluye en 
+                                el hospedaje. El desayuno, el alumerzo y la cena tienen un costo de ₡3500 cada uno.
+                            </p>
                         </div>
-
-                        <!--Cuadro sobre los servicios del lugar-->
-                        <div id="info-services"
-                             class="hide">
-                            <div class="backlink"
-                                 onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
-                                <i class="fi-br-angle-double-left"></i> VOLVER
-                            </div>
-                            <div class="row justify-content-center"
-                                 style="margin-bottom: 1em;">
-                                <div class="col-12 col-sm-6 col-md-6">
-                                    <legend class="legendCard border-bottom">Servicios</legend>
-                                    <p class="text-justify">
-                                        Dentro de los servicios que se brindan en Comidas Rita, se
-                                        encuentran la elaboración de comidas típicas, saludables y
-                                        de buena calidad. Ademas de esto, cuenta con servicio de hospedaje.
-                                    </p>
-                                    <legend class="legendCard border-bottom">Tarifas</legend>
-                                    <p class="text-justify">
-                                        El costo por el hospedaje por persona es de 20 mil colones por noche
-                                        (El servicio de hospedaje se encuentra suspendido).
-                                    </p>
-                                </div>
-                                <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
-                                    <img src="img/ComidasRita/comidasrita-2.jpeg"
-                                         class="infoImg img-fluid"
-                                         alt="">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="backlink"
-                                         onclick="$('#info-services').hide( 500 ); $('#info-feature').show( 500 );">
-                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="backlink text-right"
-                                         onclick="$('#info-services').hide( 500 ); $('#info-contact').show( 500 );">
-                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="colInfoImg col-12 col-sm-6 col-md-4 align-items-center">
+                            <img src="assets/img/PosadaPastoros/posadapastoros-9.jpeg" class="infoImg img-fluid" alt="">
                         </div>
+                    </div>
+				</div>
+			</section><!-- End Servicios -->
 
-                        <!--Cuadro sobre las tarifas del lugar-->
-                        <div id="info-contact"
-                             class="hide">
-                            <div class="backlink"
-                                 onclick="$('#info-contact').hide( 500 ); $('#infoTable').show( 500 );">
-                                <i class="fi-br-angle-double-left"></i> VOLVER
-                            </div>
-                            <div class="row justify-content-center"
-                                 style="margin-bottom: 1em;">
-                                <div class="col-12 col-sm-6 col-md-6">
-                                    <legend class="legendCard border-bottom">Contacto</legend>
-                                    <p class="text-justify">
-                                        Si desea saber más sobre el lugar, puede comunicarse con la propietaria
-                                        Rita Quirós a través de los siguientes medios.
-                                    </p>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-4 align-items-center">
-                                    <div class="card overflow-hidden bg-dark border rounded"
-                                         style="margin-bottom: 1em;">
-                                        <div class="card-content">
-                                            <div class="card-body cleartfix">
-                                                <div class="media align-items-stretch">
-                                                    <div class="media-body text-white">
-                                                        <h3> <i style="color: rgb(255, 255, 255);"
-                                                               class="fi-br-portrait"></i> Rita Quirós </h3>
-                                                        <small class="text-justify">Propietaria</small>
-                                                        <h4 style="margin-top: 1em;">
-                                                            <a
-                                                               href="https://wa.me/50686227680?text=Rita Quirós - Comidas Rita">
-                                                                <img src="img/Logo/wppLogo.svg"
-                                                                     alt=""
-                                                                     height="40"> (+506) 8549 2321
-                                                            </a> <br> <br>
-                                                            <a href="https://www.facebook.com/comidasrita">
-                                                                <img src="img/Logo/facebookLogo.svg"
-                                                                     alt=""
-                                                                     height="40"> Comidas Rita
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
+			<!-- ======= Contacto ======= -->
+			<section id="contact" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>Contacto</h2>
+					</div>
+				</div>
+				
+				<div class="container" data-aos="fade-up">
+					<div class="row justify-content-center">
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <legend class="legendCard border-bottom">Contacto</legend>
+                            <p class="text-justify">
+                                Si desea saber más sobre el lugar, puede comunicarse con los propietarios 
+                                Pastora García Zapata y su familia a través de los siguientes medios.
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 align-items-center">
+                            <div class="card overflow-hidden rounded" style="margin-bottom: 1em; border: 1px solid #71c55d; background-color: #71c55d;">
+                                <div class="card-content">
+                                    <div class="card-body cleartfix">
+                                        <div class="media align-items-stretch">
+                                            <div class="media-body">
+                                                <h3> <i class="fi-br-portrait"></i> Pastora García Zapata y familia </h3>
+                                                <small class="text-justify">Propietarios</small>
+                                                <h4 style="margin-top: 1em;"> 
+                                                    <a class="text-dark" href="https://www.facebook.com/posadalospastoros">
+                                                        <img src="assets/img/Logo/facebookLogo.svg" alt="" height="40"> Posada Los Pastoros
+                                                    </a> <br> <br>
+                                                    <a class="text-dark" href="https://www.instagram.com/posada.los.pastoros/">
+                                                        <img src="assets/img/Logo/instagram.png" alt="" height="40"> Posada Los Pastoros
+                                                    </a> <br> <br>
+                                                    <a class="text-dark" href="https://wa.me/50686227680">
+                                                        <img src="assets/img/Logo/wppLogo.svg" alt="" height="40"> (+506) 6341 2749 
+                                                    </a> <br> <br>
+                                                    <a class="text-dark" href="tel:+50625315159">
+                                                        <img src="assets/img/Logo/telefono.png" alt="" height="40"> (+506) 2531 5159 
+                                                    </a>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="backlink"
-                                         onclick="$('#info-contact').hide( 500 ); $('#info-services').show( 500 );">
-                                        <i class="fi-br-angle-double-left"></i> ANTERIOR
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <!--
-                                    <div class="backlink text-right"
-                                         onclick="$('#info-services').hide( 500 ); $('#infoTable').show( 500 );">
-                                        SIGUIENTE <i class="fi-br-angle-double-right"></i>
-                                    </div>
-                                    -->
-                                </div>
-                            </div>
                         </div>
                     </div>
+				</div>
+			</section><!-- End Contacto -->
 
-                    <!--Cuadro de galería-->
-                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
-                        <legend class="the-legend">Galería</legend>
-                        <hr style="background-color: white;">
-                        <div id="galery"
-                             class="row justify-content-center"></div>
-                        <script>
-                            createGalery('ComidasRita', 'comidasrita', 'jpeg', 9)
+			<!-- ======= Screenshots Section ======= -->
+			<section id="screenshots" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>Galería</h2>
+					</div>
+					<div class="screens-slider swiper-container">
+						<div id="myGalery" class="swiper-wrapper align-items-center"></div>
+						<div class="swiper-pagination"></div>
+						<script>
+                            createGalery('PosadaPastoros', 'posadapastoros', 'jpeg', 11)
                         </script>
-                    </div>
-
-                    <!--Cuadro para la información contacto-->
-                    <div class="myCards col-11 bg-dark text-white shadow-lg p-2 mb-4 rounded">
-                        <legend class="the-legend">Contacto</legend>
-                        <hr style="background-color: white;">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-6 ">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+					</div>
+				</div>
+			</section><!-- End Screenshots Section -->
+			<!-- ======= Newsletter Section ======= -->
+			<section id="newsletter" class="newsletter text-center">
+				<div class="overlay padd-section">
+					<div class="container" data-aos="zoom-in">
+						<div class="row justify-content-center">
+							<div class="col-md-9 col-lg-6">
+								<div id="logo">
+									<h2 style="color: rgb(3, 56, 6);">Posada Los Pastoros</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- End Newsletter Section -->
+		</main><!-- End #main -->
+		<!-- ======= Footer ======= -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-4">
+						<div class="footer-logo">
+							<a class="navbar-brand" href="#">Turístico Atlántico</a>
+							<p>Esta página web es desarrollada bajo el trabajo comunal 
+								universitario <span>TC-710 "Turismo rural y pequeños productores y 
+								productoras: Impulsando el desarrollo comunal".</span> Es diseñada para promover 
+								lugares turísticos o negocios creados por personas emprendedoras 
+								en la zona de Talamanca y Turrialba.
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3 col-lg-2">
+						<div class="list-menu">
+							<ul class="list-unstyled">
+								<li><a href="#hero">Inicio</a></li>
+								<li><a href="#how-to-get">¿Cómo llegar?</a></li>
+								<li><a href="#services">Servicios</a></li>
+								<li><a href="#contact">Contacto</a></li>
+								<li><a href="#screenshots">Galería</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer><!-- End  Footer -->
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/aos/aos.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+		<script src="assets/vendor/php-email-form/validate.js"></script>
+		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>	
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
+	</body>
 
 </html>

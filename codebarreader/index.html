@@ -14,16 +14,18 @@
     <!--
         Please visit https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr to get trial license.
     -->
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode/dist/dbr.js" data-productKeys="PRODUCT-KEYS"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode/dist/dbr.js" data-productKeys="t0068NQAAAHuw225s74wD+d8GUgFRCipN9Ingym8VO2uT1nwY55vWacwPjcP2T3Tx8sRLOIz9YE163goLrv/WV7X2aOKzfc4="></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.6.1/dist/dbr.js" data-productKeys="PRODUCT-KEYS"></script>-->
     <script src="driverlicense.js"></script>
     <script>
         let scanner = null;
         (async ()=>{
+		Dynamsoft.DBR.BarcodeScanner.organizationID = "100684369";
             scanner = await Dynamsoft.DBR.BarcodeScanner.createInstance();
             await scanner.setUIElement(document.getElementById('div-video-container'));
 
             let runtimeSettings = await scanner.getRuntimeSettings();
-            runtimeSettings.barcodeFormatIds = Dynamsoft.DBR.EnumBarcodeFormat.BF_PDF417;
+            runtimeSettings.barcodeFormatIds = Dynamsoft.DBR.EnumBarcodeFormat.BF_ALL;
             runtimeSettings.LocalizationModes = [2,8,0,0,0,0,0,0];
             runtimeSettings.deblurLevel = 2;
             await scanner.updateRuntimeSettings(runtimeSettings);
@@ -33,6 +35,8 @@
 
                 // Get infos
                 let licenseInfo = parseDriverLicense(txt);
+                alert(txt);
+                alert(licenseInfo)
                 alert(JSON.stringify(licenseInfo));
                 console.log("licenseInfo", licenseInfo);
 
@@ -42,7 +46,6 @@
                 let p = document.createElement('p');
                 p.innerText = 'Document Type: DL';
                 div.appendChild(p);
-		alert(txt);
                 for(let key in licenseInfo){
                     let info = licenseInfo[key];
                     let p = document.createElement('p');

@@ -1,70 +1,195 @@
 <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<html lang="es">
-<head>
-    <meta charset='utf-8'>
-    <title>Turistic Places</title>
-    <meta name="description" content="Turistic Places" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin=""/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-            crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
-            crossorigin="anonymous">
-    </script>
-    <script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin="">
-            </script>
-    <script src="js/scripts.js"></script>
-</head>
+		<title>Turistic Places - Index</title>
+		<meta content="" name="description">
+		<meta content="" name="keywords">
 
-<body>
-    <header id="myHeader" style="background-image: url('./img/Encabezado/tlm-casa.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-        <nav id="myNavBar" class="navbar justify-content-center">
-            <ul class="navbar-nav justify-content-center" style="margin-top: 2.5em;">
-                <li class="nav-item justify-content-center">
-                    <h1 style="color: rgb(255, 255, 255);" class="text-center">Bienvenido a Turístico Atlántico</h1>
-                </li>
-                <!--
-                <li class="nav-item justify-content-center">
-                    <h3 style="color: rgb(255, 255, 255);;" class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca</h3>
-                </li>
-                -->
-            </ul>
-        </nav>
-    </header>
-    
-    <div id="main">
-        <div id="main-container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-11">
-                    <h3 class="text-center">Acá encontrará lugares turísticos en la zona de Talamanca y cerca del Río Pacuare</h3>
-                    <h5 class="text-center">Seleccione uno de los lugares marcados en el mapa, al presionar el link encontra más información sobre el lugar</h5>
-                </div>
-                <div class="col-11 col-md-10">
-                    <div id="mapid"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        var mymap = L.map('mapid').setView([9.927596642397027, -84.09720968627332], 8);
-        callMap();
-        mymap.on('locationfound', onLocationFound);
-	    mymap.on('locationerror', onLocationError);
-	    mymap.locate({setView: true, maxZoom: 8});
-    </script>
-</body>
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+		
+		<!--CSS-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+				crossorigin=""/>
+		
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+		<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+		<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+		
+		<!-- Template Main CSS File -->
+		<link href="assets/css/style.css" rel="stylesheet">
+
+		<!--Llamadas a JS-->
+		<script src="https://code.jquery.com/jquery-3.6.0.js" 
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+				crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
+				crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/sweetalert2@latest/dist/sweetalert2.all.js"></script>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+				crossorigin=""></script>
+		<script src="assets/js/scripts.js"></script>
+	</head>
+
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="header fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div id="logo">
+					<h1><a href="index.html"><span>T</span>urístico <span>A</span>tlántico</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+						<li><a class="nav-link scrollto" href="#get-started">Lugares</a></li>
+						<li><a class="nav-link scrollto" href="#screenshots">Galería</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+			</div>
+		</header><!-- End Header -->
+		<!-- ======= Hero Section ======= -->
+		<section id="hero">
+			<div class="hero-container" data-aos="fade-in">
+				<h1>Bienvenido a <span>T</span>urístico <span>A</span>tlántico</h1>
+				<h2>Seleccione el lugar en el mapa que desea visitar</h2>
+				<!--<img src="assets/img/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">-->
+				<div class="col-11 col-md-6 align-self-center" style="margin: 1em;">
+					<div id="mapid" style="height: 300px;" data-aos="zoom-out" data-aos-delay="100"></div>
+				</div>
+				<script>
+					var mymap = L.map('mapid').setView([9.927596642397027, -84.09720968627332], 8);
+					callMap();
+					mymap.on('locationfound', onLocationFound);
+					mymap.on('locationerror', onLocationError);
+					mymap.locate({setView: true, maxZoom: 8});
+				</script>
+				<a href="#get-started" class="btn-get-started scrollto">Iniciar</a>
+			</div>
+		</section><!-- End Hero Section -->
+		
+		<main id="main">
+			<!-- ======= Get Started Section ======= -->
+			<section id="get-started" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>Algunos lugares</h2>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+							<div class="feature-block">
+								<img src="assets/img/PosadaPastoros/posadapastoros-7.jpeg" alt="img" width="300" height="200">
+								<h4>Posada Los Pastoros</h4>
+								<p>Casa de campo propiedad de una familia. Situado justo en frente de la hermosa vista de las montañas</p>
+								<a href="posadapastoros.html">Ver más</a>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+							<div class="feature-block">
+								<img src="assets/img/Shuabb/shuabb-3.jpeg" alt="img" width="300" height="200">
+								<h4>Shuabb</h4>
+								<p>Hospedaje rural dentro de una comunidad indígena</p>
+								<a href="shuabb.html">Ver más</a>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+							<div class="feature-block">
+								<img src="assets/img/ComidasRita/comidasrita-8.jpeg" alt="img" width="300" height="200">
+								<h4>Comidas Rita</h4>
+								<p>Comidas Rita es una empresa localizada en San Vicente de La Suiza que se dedica a la elaboración de comidas típicas, saludables y de buena calidad</p>
+								<a href="comidasrita.html">Ver más</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- End Get Started Section -->
+			<!-- ======= Screenshots Section ======= -->
+			<section id="screenshots" class="padd-section text-center">
+				<div class="container" data-aos="fade-up">
+					<div class="section-title text-center">
+						<h2>Galería</h2>
+					</div>
+					<div class="screens-slider swiper-container">
+						<div class="swiper-wrapper align-items-center">
+							<div class="swiper-slide"><img src="assets/img/ComidasRita/comidasrita-1.jpeg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/KoswakUsure/koswakusure-1.jpg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/ComidasRita/comidasrita-9.jpeg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/Shuabb/shuabb-1.jpeg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/PosadaPastoros/Pastoros-1.jpeg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/ComidasRita/comidasrita-8.jpeg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/KoswakUsure/koswakusure-2.jpg" class="img-fluid" alt=""></div>
+							<div class="swiper-slide"><img src="assets/img/Shuabb/shuabb-3.jpeg" class="img-fluid" alt=""></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</section><!-- End Screenshots Section -->
+			<!-- ======= Newsletter Section ======= -->
+			<section id="newsletter" class="newsletter text-center">
+				<div class="overlay padd-section">
+					<div class="container" data-aos="zoom-in">
+						<div class="row justify-content-center">
+							<div class="col-md-9 col-lg-6">
+								<div id="logo">
+									<h2 style="color: rgb(3, 56, 6);"><span>T</span>urístico <span>A</span>tlántico</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- End Newsletter Section -->
+		</main><!-- End #main -->
+		<!-- ======= Footer ======= -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-4">
+						<div class="footer-logo">
+							<a class="navbar-brand" href="#">Turístico Atlántico</a>
+							<p>Esta página web es desarrollada bajo el trabajo comunal 
+								universitario <span>TC-710 Turismo rural y pequeños productores y 
+								productoras: Impulsando el desarrollo comunal</span> para promover 
+								lugares turísticos o negocios creados por personas emprendedoras 
+								en la zona de Talamanca y Turrialba.
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3 col-lg-2">
+						<div class="list-menu">
+							<ul class="list-unstyled">
+								<li><a href="#hero">Inicio</a></li>
+								<li><a href="#get-started">Lugares</a></li>
+								<li><a href="#screenshots">Galería</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer><!-- End  Footer -->
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/aos/aos.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+		<script src="assets/vendor/php-email-form/validate.js"></script>
+		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>	
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
+	</body>
+
 </html>
