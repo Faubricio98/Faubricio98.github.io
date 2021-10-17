@@ -1548,9 +1548,6 @@ section {
 
 /* Pantallas xs */
 @media (max-width: 575px) {
-  .colInfoImg{
-    height: 0px;
-  }
   #hero .hero-container {
     margin-top: 60px;
   }
