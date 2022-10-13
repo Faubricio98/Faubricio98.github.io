@@ -1,27 +1,27 @@
 let speech = speechSynthesis;
-let voices = speech.getVoices();
-let isSpeaking = false;
+let voices = [];
+let isSpeaking = true;
 
 $(document).ready(function(){
+    let supportMsg = document.getElementById('msg');
+    if ('speechSynthesis' in window) {
+    	supportMsg.innerHTML = 'Your browser <strong>supports</strong> speech synthesis.';
+    } else {
+    	supportMsg.innerHTML = 'Sorry your browser <strong>does not support</strong> speech synthesis.';
+    }
     chargeVoices();
+    window.speechSynthesis.onvoiceschanged = function(e) {
+        chargeVoices();
+    };
     $("#speechBtn").click(function(){
-        if(isSpeaking){
-            speech.pause();
-            isSpeaking = false;
-            document.getElementById("speechBtn").innerHTML = "Resume Speech";
-        }else if(speech.speaking && !isSpeaking){
-            speech.resume();
-            isSpeaking = true;
-            document.getElementById("speechBtn").innerHTML = "Pause Speech";
+        let text = $("#text").val();
+        let selectedVoice = $("#voice");
+        if (text == "" || text == null){
+            alert("Enter a text");
+        }else if(selectedVoice.val() == 0){
+            alert("Choose a language");
         }else{
-            let text = $("#text").val();
-            let selectedVoice = $("#voice");
-            
-            if (text == "" || text == null){
-                alert("Enter a text");
-            }else if(selectedVoice.val() == 0){
-                alert("Choose a language");
-            }else{
+            if(!speech.speaking){
                 let utter = new SpeechSynthesisUtterance(text);
                 voices.forEach(voice => {
                     if(selectedVoice.name == voice.name){
@@ -29,14 +29,37 @@ $(document).ready(function(){
                     }
                 });
                 speech.speak(utter);
-                isSpeaking = true;
-                document.getElementById("speechBtn").innerHTML = "Pause Speech";
+            }
+
+            if(text.length > 80){
+                if(isSpeaking){
+                    console.log("Hi")
+                    speech.resume();
+                    isSpeaking = false;
+                }else{
+                    console.log("Hi2")
+                    speech.pause();
+                    isSpeaking = true;
+                }
+                console.log("Hi3")
+                setInterval(() => {
+                    if(!speech.paused && speech.speaking){
+                        document.getElementById("speechBtn").innerHTML = "Pause Speech";
+                    }else if(speech.paused && speech.speaking){
+                        document.getElementById("speechBtn").innerHTML = "Resume Speech";
+                    }else if(!speech.paused && !speech.speaking){
+                        document.getElementById("speechBtn").innerHTML = "Play Speech";
+                    }
+                });
+            }else{
+                document.getElementById("speechBtn").innerHTML = "Play Speech";
             }
         }
     });
 });
 
 function chargeVoices(){
+    voices = speech.getVoices();
     voices.forEach(voice => {
        let option = document.createElement("option");
        option.textContent = voice.name;
