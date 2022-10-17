@@ -1,0 +1,15 @@
+.container{
+    height: fit-content;
+}
+
+.generator{
+    background-color: darkcyan;
+    height: fit-content;
+    padding: 1em;
+    text-align: center;
+}
+
+.pass-container{
+    padding: 1em;
+    margin: 1em;
+}
