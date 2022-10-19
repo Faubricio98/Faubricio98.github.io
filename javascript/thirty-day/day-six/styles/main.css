@@ -1,0 +1,21 @@
+.chars-counter-container{
+    background-color: black;
+}
+
+.counters-container{
+    color: white;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.main{
+    background-color: coral;
+}
+
+.text-container{
+    margin-bottom: 1em;
+}
+
+.words-counter-container{
+    background-color: black;
+}
