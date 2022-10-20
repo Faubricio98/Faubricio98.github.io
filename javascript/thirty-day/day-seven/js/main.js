@@ -61,6 +61,8 @@ $(document).ready(function(){
             option_to.value = symbol_measure[i];
             select_to.appendChild(option_to);
         }
+        $(".from-value").val("");
+        $(".to-value").val("");
     }
 
     function convertMeasure(){
