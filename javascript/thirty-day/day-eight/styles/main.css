@@ -1,0 +1,15 @@
+.btn-container{
+    display: grid;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.main{
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.text-container{
+    margin-top: 1em;
+    padding: 1em;
+}
