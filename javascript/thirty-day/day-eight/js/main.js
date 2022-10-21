@@ -13,7 +13,11 @@ $(document).ready(function(){
 
         recognition.addEventListener("result", (e) => {
             console.log("On Results");
-            text_space.value = e.results[0][0].transcript;
+            let text = "";
+            for(let i = 0; i < e.results.length; i++){
+                text += e.results[i][0].transcript + " ";
+            }
+            text_space.value = text;
         });
 
         $(".btn-speech").click(function(){
