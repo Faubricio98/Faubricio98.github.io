@@ -34,5 +34,8 @@ class Point{
         context.moveTo(this.x, this.y);
         context.lineTo(this.x + 1, this.y + 1);
         context.stroke();
+        //context.beginPath();
+        //context.font = "10px Arial";
+        //context.fillText(this.id, this.getX() + this.id, this.getY() + this.id);
     }
 }

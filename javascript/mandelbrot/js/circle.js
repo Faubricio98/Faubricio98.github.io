@@ -18,6 +18,18 @@ class Circle{
         return this.r;
     }
 
+    setPoints(point){
+        this.points.set(point.getId(), point);
+    }
+
+    getPoints(){
+        return this.points;
+    }
+
+    clearPoints(){
+        this.points.clear();
+    }
+
     draw(context){
         context.beginPath();
         context.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
